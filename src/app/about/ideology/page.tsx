@@ -77,7 +77,7 @@ export default function IdeologyPage() {
                 Our Heritage of Strength and Sacrifice
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Imagine Ze'ev Jabotinsky urging Jews in Europe to leave before the Holocaust, foreseeing the dangers that lay ahead. Picture the Irgun’s resistance against the British occupation in pre-state Israel. Remember the heroism of Joseph Trumpeldor, who defended Tel Hai with his last words, "It is good to die for our country." Betar members formed Plugat Hakotel to guard Jews at the Western Wall when they needed protection. These are our heroes—our foundation.
+                Imagine Ze'ev Jabotinsky urging Jews in Europe to leave before the Holocaust, foreseeing the dangers that lay ahead. Picture the Irgun&apos;s resistance against the British occupation in pre-state Israel. Remember the heroism of Joseph Trumpeldor, who defended Tel Hai with his last words, "It is good to die for our country." Betar members formed Plugat Hakotel to guard Jews at the Western Wall when they needed protection. These are our heroes—our foundation.
               </p>
             </div>
           </div>
@@ -89,10 +89,10 @@ export default function IdeologyPage() {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-20 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
-                Reviving Jabotinsky’s Ideals
+                Reviving Jabotinsky&apos;s Ideals
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                In the United States and around the world, Betar continues to uphold Jabotinsky’s ideals, guiding members with his "philosophy of life." He called on us to protect and honor the Jewish community, to be a proud and "normal" nation. After centuries in exile, we must cultivate resilience, unity, and the ability to defend ourselves. Betar fosters these qualities, embodying a vision for a healthy, dignified Jewish people who act with pride and purpose.
+                In the United States and around the world, Betar continues to uphold Jabotinsky&apos;s ideals, guiding members with his "philosophy of life." He called on us to protect and honor the Jewish community, to be a proud and "normal" nation. After centuries in exile, we must cultivate resilience, unity, and the ability to defend ourselves. Betar fosters these qualities, embodying a vision for a healthy, dignified Jewish people who act with pride and purpose.
               </p>
             </div>
             <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
@@ -134,7 +134,7 @@ export default function IdeologyPage() {
                 The Legacy Continues
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Betar stands as a living tribute to Jabotinsky’s teachings, with members who embody the principles of Ahavat Yisrael, Hadar, Barzel, Achdut, Bitachon, and Tzedek. Our movement celebrates the strength, dignity, and legacy of the Jewish people and is committed to ensuring that Jabotinsky’s vision for a proud, resilient, and unified Jewish nation endures.As we look to the future, Betar remains steadfast in its mission to inspire, protect, and lead with honor, just as our heroes did before us.
+                Betar stands as a living tribute to Jabotinsky&apos;s teachings, with members who embody the principles of Ahavat Yisrael, Hadar, Barzel, Achdut, Bitachon, and Tzedek. Our movement celebrates the strength, dignity, and legacy of the Jewish people and is committed to ensuring that Jabotinsky&apos;s vision for a proud, resilient, and unified Jewish nation endures.As we look to the future, Betar remains steadfast in its mission to inspire, protect, and lead with honor, just as our heroes did before us.
               </p>
             </div>
           </div>

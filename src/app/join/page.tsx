@@ -18,8 +18,8 @@ export default function JoinPage() {
             </h1>
             <div className="max-w-[700px] md:ml-96">
               <p className="text-xl md:text-2xl font-semibold">
-                It's time we all unite, rally, mobilize, and take action nationally and locally.
-                We are opening Betar Chapters throughout the USA and seeking leadership, membership and donors. Please complete the form below to get in touch and let's discuss the possibilities to make an impact in your community.
+                It&apos;s time we all unite, rally, mobilize, and take action nationally and locally.
+                We are opening Betar Chapters throughout the USA and seeking leadership, membership and donors. Please complete the form below to get in touch and let&apos;s discuss the possibilities to make an impact in your community.
               </p>
             </div>
           </div>

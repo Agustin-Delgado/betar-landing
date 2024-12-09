@@ -161,7 +161,7 @@ export default function AboutPage() {
             </svg>
             <div className='absolute inset-0 flex items-center justify-center flex-col'>
               <p className="text-center text-2xl font-semibold text-accent max-w-3xl">
-                Betar exists to lead Jews and inspire action. Our mission is simple: Jews Fight Back! Guided by the words of our founder, Ze'ev Jabotinsky, “Silence is Despicable,” we are a movement dedicated to instilling pride, strength, and resilience in Jews everywhere.
+                Betar exists to lead Jews and inspire action. Our mission is simple: Jews Fight Back! Guided by the words of our founder, Ze&apos;ev Jabotinsky, &quot;Silence is Despicable,&quot; we are a movement dedicated to instilling pride, strength, and resilience in Jews everywhere.
               </p>
             </div>
           </div>
@@ -184,7 +184,8 @@ export default function AboutPage() {
                 What we do
               </h2>
               <p className="mt-12 text-xl font-medium leading-7">
-                We empower and encourage Jews to embrace their identity, take action, support Israel and take active roles in their communities through programs and events. We envision a world where Jews everywhere feel empowered to protect their communities, defend Israel, and act with unwavering commitment to Jewish values. Betar fosters this future by developing strong, active voices that inspire and create lasting impact.              </p>
+                We empower and encourage Jews to embrace their identity, take action, support Israel and take active roles in their communities through programs and events. We envision a world where Jews everywhere feel empowered to protect their communities, defend Israel, and act with unwavering commitment to Jewish values. Betar fosters this future by developing strong, active voices that inspire and create lasting impact.
+              </p>
             </div>
           </div>
         </div>
@@ -233,7 +234,8 @@ export default function AboutPage() {
                 Our History
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Betar was founded in 1923 by Ze'ev Jabotinsky, as a movement dedicated to strengthening Jewish identity and self-defense. Over nearly a century, Betar has grown into a global community, empowering generations to embrace their heritage with pride and courage. Our story is one of resilience, commitment, and unity, spanning from our earliest days in Europe to our present-day international reach.              </p>
+                Betar was founded in 1923 by Ze&apos;ev Jabotinsky, as a movement dedicated to strengthening Jewish identity and self-defense. Over nearly a century, Betar has grown into a global community, empowering generations to embrace their heritage with pride and courage. Our story is one of resilience, commitment, and unity, spanning from our earliest days in Europe to our present-day international reach.
+              </p>
             </div>
             <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
               <Image
@@ -255,7 +257,7 @@ export default function AboutPage() {
           <blockquote className="text-7xl font-bold leading-tight">
             "There is no mightier weapon than indifference, you will never conquer it."
           </blockquote>
-          <cite className="text-xl">— Ze'ev Jabotinsky</cite>
+          <cite className="text-xl">— Ze&apos;ev Jabotinsky</cite>
         </div>
 
         <div className="grid grid-cols-2 mt-8 h-full">
@@ -294,7 +296,7 @@ export default function AboutPage() {
             <div className="space-y-4 max-w-[500px] flex flex-col gap-8">
               <h1 className="text-7xl font-bold">Ideology</h1>
               <p className="leading-relaxed font-medium text-xl">
-                Betar’s ideology is rooted in core principles that guide every action and inspire our members:
+                Betar&apos;s ideology is rooted in core principles that guide every action and inspire our members:
                 <br />
                 <strong>Ahavat Yisrael{" "}</strong> Love of Israel
                 <br />
@@ -319,7 +321,7 @@ export default function AboutPage() {
                 Leadership Team
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Meet the leaders who uphold Betar’s mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky’s legacy.
+                Meet the leaders who uphold Betar&apos;s mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky&apos;s legacy.
               </p>
               <Button
                 className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
@@ -348,7 +350,7 @@ export default function AboutPage() {
           </h2>
         </div>
         <p className="mx-auto mt-6  text-pretty text-center text-xl font-medium max-w-7xl mb-10">
-          Explore Betar’s recommended reading list to deepen your understanding of Jewish resilience, Zionist history, and the legacy of Ze’ev Jabotinsky:
+          Explore Betar&apos;s recommended reading list to deepen your understanding of Jewish resilience, Zionist history, and the legacy of Ze&apos;ev Jabotinsky:
         </p>
         <CardCarousel carouselData={carousel_two} />
       </div>
