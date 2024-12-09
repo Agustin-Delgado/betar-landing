@@ -44,7 +44,7 @@ export default function IdeologyPage() {
                 Ideology
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Betar is more than a movement; it is a legacy of pride, resilience, and unwavering commitment to the Jewish people. Inspired by the teachings and vision of Ze'ev Jabotinsky, Betar instills values that empower our community to stand strong, united, and dignified. This is Betar — where history, honor, and responsibility converge to shape a future of pride and strength for the Jewish people.
+                Betar is more than a movement; it is a legacy of pride, resilience, and unwavering commitment to the Jewish people. Inspired by the teachings and vision of Ze&apos;ev Jabotinsky, Betar instills values that empower our community to stand strong, united, and dignified. This is Betar — where history, honor, and responsibility converge to shape a future of pride and strength for the Jewish people.
               </p>
             </div>
             <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
@@ -77,7 +77,7 @@ export default function IdeologyPage() {
                 Our Heritage of Strength and Sacrifice
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                Imagine Ze'ev Jabotinsky urging Jews in Europe to leave before the Holocaust, foreseeing the dangers that lay ahead. Picture the Irgun&apos;s resistance against the British occupation in pre-state Israel. Remember the heroism of Joseph Trumpeldor, who defended Tel Hai with his last words, "It is good to die for our country." Betar members formed Plugat Hakotel to guard Jews at the Western Wall when they needed protection. These are our heroes—our foundation.
+                Imagine Ze&apos;ev Jabotinsky urging Jews in Europe to leave before the Holocaust, foreseeing the dangers that lay ahead. Picture the Irgun&apos;s resistance against the British occupation in pre-state Israel. Remember the heroism of Joseph Trumpeldor, who defended Tel Hai with his last words, &quot;It is good to die for our country.&quot; Betar members formed Plugat Hakotel to guard Jews at the Western Wall when they needed protection. These are our heroes—our foundation.
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function IdeologyPage() {
                 Reviving Jabotinsky&apos;s Ideals
               </h2>
               <p className="mt-16 text-xl font-medium leading-7">
-                In the United States and around the world, Betar continues to uphold Jabotinsky&apos;s ideals, guiding members with his "philosophy of life." He called on us to protect and honor the Jewish community, to be a proud and "normal" nation. After centuries in exile, we must cultivate resilience, unity, and the ability to defend ourselves. Betar fosters these qualities, embodying a vision for a healthy, dignified Jewish people who act with pride and purpose.
+                In the United States and around the world, Betar continues to uphold Jabotinsky&apos;s ideals, guiding members with his &quot;philosophy of life.&quot; He called on us to protect and honor the Jewish community, to be a proud and &quot;normal&quot; nation. After centuries in exile, we must cultivate resilience, unity, and the ability to defend ourselves. Betar fosters these qualities, embodying a vision for a healthy, dignified Jewish people who act with pride and purpose.
               </p>
             </div>
             <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
@@ -144,9 +144,9 @@ export default function IdeologyPage() {
       <div className="container mx-auto max-w-7xl pb-32 relative">
         <div className="text-primary flex flex-col gap-4 mb-20">
           <blockquote className="text-7xl font-bold leading-tight">
-            "Silence is despicable"
+            &quot;Silence is despicable&quot;
           </blockquote>
-          <cite className="text-xl">— Ze'ev Jabotinsky</cite>
+          <cite className="text-xl">— Ze&apos;ev Jabotinsky</cite>
         </div>
 
         <div className="h-[560px] aspect-[16/9]">

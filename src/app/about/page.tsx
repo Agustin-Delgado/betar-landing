@@ -37,7 +37,7 @@ const carousel_two = [
   {
     id: 1,
     title: "A Life",
-    description: "A well-written, passionate survey of Jabotinsky’s life and contributions to political Zionism.",
+    description: "A well-written, passionate survey of Jabotinsky's life and contributions to political Zionism.",
     imageUrl: "/2c745b84e5c46dd1a90c05b0fb67035a.jpeg"
   },
   {
@@ -49,7 +49,7 @@ const carousel_two = [
   {
     id: 3,
     title: "The Battle for Israel's Soul",
-    description: "Reviled as a fascist by his great rival Ben-Gurion, venerated by Israel’s underclass, the first Israeli to win the Nobel Peace Prize, a proud Jew but not a conventionally religious one, Menachem Begin was both complex and controversial",
+    description: "Reviled as a fascist by his great rival Ben-Gurion, venerated by Israel's underclass, the first Israeli to win the Nobel Peace Prize, a proud Jew but not a conventionally religious one, Menachem Begin was both complex and controversial",
     imageUrl: "/3f6bb944f8f0742663326e860cba149e.jpeg"
   },
   {
@@ -78,7 +78,7 @@ const accordion = [
   },
   {
     id: 4,
-    title: "How can I support Betar’s mission?",
+    title: "How can I support Betar's mission?",
     description: "You can support Betar by donating, volunteering, or spreading the word about our work.",
   }
 ]
