@@ -38,7 +38,7 @@ export const HoverCard: React.FC<CardProps> = ({ title, subTitle, description, i
         className={`absolute inset-0 bg-blue-600 z-20 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
       ></div>
 
-      <div className="absolute inset-0 bg-secondary z-10"></div>
+      <div className={cn("absolute inset-0 z-10", imageUrl ? "bg-foreground opacity-50" : "bg-secondary")}></div>
 
       {imageUrl && (
         <img

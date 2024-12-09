@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowRight } from 'lucide-react';
 import Header from "./components/header";
 import { Button } from "@/components/ui/button";
@@ -5,6 +7,7 @@ import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Footer from './components/footer';
+import Link from 'next/link';
 
 const stats = [
   { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: '%500' },
@@ -41,9 +44,12 @@ export default function Home() {
             </h1>
             <Button
               className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+              asChild
             >
-              Join Us
-              <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+              <Link href="/join">
+                Join Us
+                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+              </Link>
             </Button>
           </div>
           <div className="h-16 sm:h-[77px] bg-[#EC1B24] flex items-center justify-center">
@@ -67,9 +73,12 @@ export default function Home() {
               </p>
               <Button
                 className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+                asChild
               >
-                Learn More
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <Link href="/about">
+                  Learn More
+                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                </Link>
               </Button>
             </div>
             <Image
@@ -95,12 +104,16 @@ export default function Home() {
               <div className='flex gap-4'>
                 <Button
                   className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  asChild
                 >
-                  Join Us
-                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <Link href="/join">
+                    Join Us
+                    <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  </Link>
                 </Button>
                 <Button
                   className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
                 >
                   Donate
                   <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />

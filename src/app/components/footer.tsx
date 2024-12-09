@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,6 +24,7 @@ export default function Footer() {
         <div className="mt-12 flex items-center justify-center gap-x-6 relative z-10">
           <Button
             className="bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-transparent hover:text-accent group hover:border"
+            onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
           >
             Donate
             <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />

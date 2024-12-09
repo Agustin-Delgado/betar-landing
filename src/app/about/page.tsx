@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Header from "../components/header";
 
@@ -8,6 +10,7 @@ import Timeline from "./components/timeline";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import Footer from "../components/footer";
+import Link from "next/link";
 
 const carousel_one = [
   {
@@ -35,25 +38,25 @@ const carousel_two = [
     id: 1,
     title: "A Life",
     description: "A well-written, passionate survey of Jabotinsky’s life and contributions to political Zionism.",
-    imageUrl: "2c745b84e5c46dd1a90c05b0fb67035a.jpeg"
+    imageUrl: "/2c745b84e5c46dd1a90c05b0fb67035a.jpeg"
   },
   {
     id: 2,
     title: "Terror Out of Zion",
     description: "This is the definitive story of desperate, dedicated revolutionaries who were driven to conclude that lives must be taken if Israel were to live",
-    imageUrl: "4b1268f26ee918436ad29319fc28f99e.jpeg"
+    imageUrl: "/4b1268f26ee918436ad29319fc28f99e.jpeg"
   },
   {
     id: 3,
     title: "The Battle for Israel's Soul",
     description: "Reviled as a fascist by his great rival Ben-Gurion, venerated by Israel’s underclass, the first Israeli to win the Nobel Peace Prize, a proud Jew but not a conventionally religious one, Menachem Begin was both complex and controversial",
-    imageUrl: "3f6bb944f8f0742663326e860cba149e.jpeg"
+    imageUrl: "/3f6bb944f8f0742663326e860cba149e.jpeg"
   },
   {
     id: 4,
     title: "Story of the Irgun",
     description: "Russian-Israeli politician Menachem Begin from 1943 led Irgun, the Zionist underground movement in Palestine, until the establishment in 1948 and afterward, known for his hard-line views on the Arabs, as prime minister from 1977 to 1983 strove to resolve the conflict and shared the Nobel Prize for peace of 1978 with Muhammad Anwar el-Sadat of Egypt.",
-    imageUrl: "879802f937b77f64470ddfd61c7ede21.jpeg"
+    imageUrl: "/879802f937b77f64470ddfd61c7ede21.jpeg"
   },
 ]
 
@@ -202,12 +205,16 @@ export default function AboutPage() {
               <div className='flex gap-4'>
                 <Button
                   className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  asChild
                 >
-                  Join Us
-                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <Link href="/join">
+                    Join Us
+                    <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  </Link>
                 </Button>
                 <Button
                   className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
                 >
                   Donate
                   <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
@@ -265,9 +272,12 @@ export default function AboutPage() {
             </div>
             <Button
               className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+              asChild
             >
-              Learn More
-              <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+              <Link href="/about/ideology">
+                Learn More
+                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+              </Link>
             </Button>
           </div>
 
