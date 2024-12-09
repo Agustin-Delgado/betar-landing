@@ -255,7 +255,7 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto p-8 grid gap-8 flex-1 flex-grow">
         <div className="text-primary flex flex-col gap-4">
           <blockquote className="text-7xl font-bold leading-tight">
-            "There is no mightier weapon than indifference, you will never conquer it."
+            &quot;There is no mightier weapon than indifference, you will never conquer it.&quot;
           </blockquote>
           <cite className="text-xl">— Ze&apos;ev Jabotinsky</cite>
         </div>
