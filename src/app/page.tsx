@@ -1,13 +1,14 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react';
-import Header from "./components/header";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { Input } from '@/components/ui/input';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Footer from './components/footer';
 import Link from 'next/link';
+import Footer from './components/footer';
+import Header from "./components/header";
+import NewsletterForm from './components/newsletter-form';
+import CardCarousel from "./about/components/carousel";
 
 const stats = [
   { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: '%500' },
@@ -31,53 +32,83 @@ const posts = [
   },
 ]
 
-export default function Home() {
+const carousel = [
+  {
+    id: 1,
+    title: "Identity Assertion",
+    subTitle: "",
+    description: "Reinforcing the inseparability of Jewish identity and Zionism, affirming that pride in Jewish heritage includes unwavering support for the Jewish state.",
+    imageUrl: "",
+    textColor: "!text-primary",
+  },
+  {
+    id: 2,
+    title: "Educational Initiatives",
+    subTitle: "",
+    description: "Betar will provide educational resources and training to empower Jewish students to stand up against antisemitism and defend their identity.",
+    imageUrl: "",
+    textColor: "!text-primary",
+  },
+  {
+    id: 3,
+    title: "Defense Training",
+    subTitle: "",
+    description: "Betar will provide Jewish students with the tools and resources to defend themselves against antisemitism and hate.",
+    imageUrl: "",
+    textColor: "!text-primary",
+  }
+]
+
+export default function HomePage() {
   return (
-    <div className='flex flex-col items-center'>
+    <div>
       <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.jpeg')] flex flex-col">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
         <div className="relative z-10 flex flex-col h-full">
           <Header />
           <div className="flex-grow flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-center text-4xl sm:text-5xl lg:text-6xl text-accent font-bold max-w-5xl">
+            <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-accent font-bold max-w-5xl">
               Join a movement of strong, proud Jewish leaders standing against antisemitism.
             </h1>
             <Button
-              className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+              className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-accent text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               asChild
             >
               <Link href="/join">
                 Join Us
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Link>
             </Button>
           </div>
-          <div className="h-16 sm:h-[77px] bg-[#EC1B24] flex items-center justify-center">
-            <Button variant="link" className="text-muted text-lg sm:text-xl font-bold flex items-center">
-              Sign Petition to Ban SJP from College Campuses
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2" />
+          <div className="bg-[#EC1B24] flex items-center justify-center py-3 sm:py-4 md:py-5 lg:py-6 px-4 sm:px-6 lg:px-8">
+            <Button
+              variant="link"
+              className="text-muted text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold flex items-center flex-wrap justify-center text-center"
+            >
+              <span className="mr-2">Sign Petition to Ban SJP from College Campuses</span>
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
+      <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div>
-              <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
+              <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
                 Empowering Jewish Students
               </h2>
-              <p className="mt-6 text-xl font-medium leading-7">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl font-medium leading-7">
                 Betar USA is a Zionist youth movement dedicated to empowering Jewish students to defend and embrace their identity, heritage, and community in the face of rising antisemitism, particularly on college campuses.
               </p>
               <Button
-                className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+                className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 border-black bg-white border text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
                 asChild
               >
                 <Link href="/about">
                   Learn More
-                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                 </Link>
               </Button>
             </div>
@@ -86,37 +117,38 @@ export default function Home() {
               src="/dims.jpeg"
               width={820}
               height={547}
+              className="w-full h-auto"
             />
           </div>
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
+      <div className="overflow-hidden bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className='relative'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="625" viewBox="0 0 1280 625" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 625" fill="none" className="w-full h-auto">
               <path fillRule="evenodd" clipRule="evenodd" d="M0 103.733L48.0298 523.618L1280 624.549V0.496582L0 103.733Z" fill="#134CDD" />
             </svg>
             <div className='absolute inset-0 flex items-center justify-center flex-col'>
-              <h2 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-accent">
+              <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-accent">
                 #JewsFightBack
               </h2>
-              <div className='flex gap-4'>
+              <div className='flex flex-row gap-4 mt-4 sm:mt-6 md:mt-8'>
                 <Button
-                  className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  className="bg-accent text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group hover:border"
                   asChild
                 >
                   <Link href="/join">
                     Join Us
-                    <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                   </Link>
                 </Button>
                 <Button
-                  className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  className="bg-accent text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group hover:border"
                   onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
                 >
                   Donate
-                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                 </Button>
               </div>
             </div>
@@ -124,45 +156,26 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl text-center">
-          <h2 className="mt-2 text-balance text-5xl font-bold sm:text-7xl">
+      <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 md:mb-10 mx-auto">
             Our Guiding Compass
           </h2>
-        </div>
-        <p className="mx-auto mt-6  text-pretty text-center text-xl font-medium max-w-7xl">
-          Betar is a Zionist movement and is standing against any attempts to delegitimize Israel’s existence or a Jew’s connection to Israel. Betarim will be educated and supported to fight back on campus, in social media, and in their communities.
-        </p>
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 lg:max-w-7xl lg:grid-cols-3 gap-4">
-          <div className="bg-primary p-12 min-h-[500px] flex flex-col items-start gap-8 w-full">
-            <span className="text-5xl font-bold text-accent">Identity Assertion</span>
-            <p className="mt-2 text-lg font-medium text-accent">
-              Reinforcing the inseparability of Jewish identity and Zionism, affirming that pride in Jewish heritage includes unwavering support for the Jewish state.
-            </p>
-          </div>
-          <div className="bg-secondary p-12 min-h-[500px] flex flex-col items-start gap-8 w-full">
-            <span className="text-5xl font-bold text-primary">Educational Initiatives</span>
-            <p className="mt-2 text-lg font-medium text-accent">
-            </p>
-          </div>
-          <div className="bg-secondary p-12 min-h-[500px] flex flex-col items-start gap-8 w-full">
-            <span className="text-5xl font-bold text-primary">Defense Training</span>
-            <p className="mt-2 text-lg font-medium text-accent">
-            </p>
-          </div>
+          <p className="mx-auto mb-8 sm:mb-10 md:mb-12 text-center text-base sm:text-lg md:text-xl font-medium max-w-4xl">
+            Betar is a Zionist movement and is standing against any attempts to delegitimize Israel&apos;s existence or a Jew&apos;s connection to Israel. Betarim will be educated and supported to fight back on campus, in social media, and in their communities.
+          </p>
+          <CardCarousel carouselData={carousel} />
         </div>
       </div>
 
       <div className="overflow-x-hidden bg-white">
-        <div className="mx-auto max-w-[90rem]">
+        <div className="mx-auto max-w-[90rem] bg-primary">
           <div className="relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="1440"
-              height="841"
               viewBox="0 0 1440 841"
               fill="none"
-              className="w-full h-auto"
+              className="w-full h-auto hidden lg:block"
             >
               <path
                 fillRule="evenodd"
@@ -171,28 +184,28 @@ export default function Home() {
                 fill="#134CDD"
               />
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center flex-col">
+            <div className="lg:absolute inset-0 flex items-center justify-center flex-col px-4 sm:px-8 py-24 sm:py-32">
               <div className="mx-auto max-w-4xl text-center">
-                <h2 className="mt-2 text-balance text-5xl font-bold sm:text-7xl text-accent">
+                <h2 className="mt-2 text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
                   The Problem
                 </h2>
               </div>
-              <p className="mx-auto mt-6 max-w-7xl text-pretty text-center text-xl font-medium text-accent">
+              <p className="mx-auto mt-4 sm:mt-6 max-w-7xl text-pretty text-center text-base sm:text-lg md:text-xl font-medium text-accent">
                 The Jewish community, especially young people on college campuses, are facing a rise in
                 antisemitism that fuels isolation and vulnerability. Fragmented support systems and a
                 growing disconnect from Jewish heritage weaken their sense of unity, pride, and
                 resilience, threatening the strength of the Jewish community.
               </p>
-              <div className="py-24 sm:py-32">
-                <div className="mx-auto max-w-7xl">
-                  <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
+              <div className="w-full py-8 sm:py-12 md:py-16 lg:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                  <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-16">
                     {stats.map((stat) => (
                       <div
                         key={stat.id}
-                        className="mx-auto flex max-w-xs flex-col gap-y-4"
+                        className="flex flex-col items-center text-center"
                       >
-                        <dt className="text-base text-accent">{stat.name}</dt>
-                        <dd className="order-first text-3xl font-bold tracking-tight text-accent sm:text-7xl">
+                        <dt className="text-xs sm:text-sm md:text-base text-accent mb-2">{stat.name}</dt>
+                        <dd className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-accent">
                           {stat.value}
                         </dd>
                       </div>
@@ -205,19 +218,19 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
+      <div className="overflow-hidden bg-background px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div>
-              <span className='text-xl font-medium'>04.19.23  l  Newspaper</span>
-              <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
+              <span className='text-base sm:text-lg md:text-xl font-medium'>04.19.23  l  Newspaper</span>
+              <h2 className="text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold max-w-5xl mt-2 sm:mt-4">
                 Betar warns Jews regarding New York rising Antisemitism
               </h2>
               <Button
-                className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+                className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 border-foreground bg-background border text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               >
                 More News
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Button>
             </div>
             <Image
@@ -225,60 +238,19 @@ export default function Home() {
               src="/newspaper.png"
               width={820}
               height={547}
+              className="w-full h-auto"
             />
           </div>
         </div>
       </div>
 
-      <div className="overflow-hidden bg-primary p-24 sm:p-30 max-w-7xl">
-        <div className="mx-auto max-w-[90rem]">
-          <div className="mx-auto max-w-7xl text-left">
-            <h2 className="mt-2 text-balance text-5xl font-bold sm:text-6xl text-accent">
-              Get alerts and receive the latest news, events, and updates from Betar.
-            </h2>
-          </div>
-          <div className="py-24 sm:py-32 !pb-0">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='First Name'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Last Name'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Email'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Phone Number'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='State'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='City'
-                />
-              </dl>
-              <Button
-                className="mt-28 bg-accent border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
-              >
-                Submit
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
-              </Button>
-            </div>
-          </div>
-        </div>
+      <div className="py-24 sm:py-32">
+        <NewsletterForm />
       </div>
 
-      <div className="bg-secondary w-full pt-20 pb-24 sm:pb-32 sm:mt-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-balance text-center text-5xl font-bold sm:text-6xl text-foreground">
+      <div className="bg-secondary w-full py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-balance text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Follow us on social media
           </h2>
           <div className='flex items-center justify-center gap-28 mt-10'>
@@ -341,11 +313,11 @@ export default function Home() {
               </g>
             </svg>
           </div>
-          <Carousel className="mt-14">
+          <Carousel className="mt-10 sm:mt-14">
             <CarouselContent>
               {posts.map((post, index) => (
                 <CarouselItem
-                  className="md:basis-1/2 lg:basis-1/3 w-[400px] h-[400px] overflow-hidden"
+                  className="md:basis-1/2 lg:basis-1/3 w-full sm:w-[400px] h-[300px] sm:h-[400px] overflow-hidden"
                   key={index}
                 >
                   <Image

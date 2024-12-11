@@ -3,41 +3,40 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
-
   return (
     <div className="w-full h-full">
-      <div className="bg-primary py-24 sm:py-40 relative">
+      <div className="bg-primary py-12 sm:py-24 md:py-40 relative">
         <img src="/footer-banner.png" alt="footer-banner" className="absolute inset-0 w-full h-full object-cover mix-blend-plus-lighter z-0" />
-        <div className="text-center flex flex-col gap-2 relative z-10">
-          <span className="text-balance text-5xl font-semibold tracking-tight text-accent sm:text-8xl">
+        <div className="text-center flex flex-col gap-2 relative z-10 px-4">
+          <span className="text-balance text-3xl sm:text-5xl md:text-8xl font-semibold tracking-tight text-accent">
             BETAR
           </span>
-          <span className="text-balance text-6xl tracking-tight text-accent">
+          <span className="text-balance text-3xl sm:text-5xl md:text-6xl tracking-tight text-accent">
             IS HERE TO LEAD
           </span>
         </div>
-        <div className="mt-12 flex items-center justify-center gap-x-6 relative z-10">
+        <div className="mt-8 sm:mt-12 flex items-center justify-center relative z-10">
           <Button
-            className="bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-transparent hover:text-accent group hover:border"
+            className="bg-accent text-foreground font-bold h-10 sm:h-12 md:h-16 px-4 sm:px-6 md:px-10 py-0 text-sm sm:text-lg md:text-xl hover:bg-transparent hover:text-accent group hover:border"
             onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
           >
             Donate
-            <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
           </Button>
         </div>
       </div>
-      <div className="bg-foreground py-24 w-full h-full relative z-10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
-            <div className="text-accent flex flex-col gap-10">
-              <Image src="/header-logo.svg" alt="logo" width={136} height={36} />
+      <div className="bg-foreground py-12 sm:py-16 md:py-24 w-full h-full relative z-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center sm:text-left">
+            <div className="text-accent flex flex-col items-center sm:items-start gap-6 sm:gap-10">
+              <Image src="/header-logo.svg" alt="logo" width={136} height={36} className="w-24 sm:w-32 md:w-36" />
               <div className="flex gap-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="hover:text-primary transition cursor-pointer" width="22" height="22" viewBox="0 0 40 40" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="hover:text-primary transition cursor-pointer w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 40 40" fill="currentColor">
                   <mask id="mask0_1_379" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
                     <path fillRule="evenodd" clipRule="evenodd" d="M0 0H39.067V39.0523H0V0Z" fill="white" />
                   </mask>
@@ -49,9 +48,7 @@ export default function Footer() {
                 </svg>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="hover:text-primary transition cursor-pointer"
-                  width="22"
-                  height="22"
+                  className="hover:text-primary transition cursor-pointer w-5 h-5 sm:w-6 sm:h-6"
                   viewBox="0 0 22 39"
                   fill="currentColor"
                 >
@@ -73,9 +70,7 @@ export default function Footer() {
                 </svg>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="hover:text-primary transition cursor-pointer"
-                  width="22"
-                  height="22"
+                  className="hover:text-primary transition cursor-pointer w-5 h-5 sm:w-6 sm:h-6"
                   viewBox="0 0 41 39"
                   fill="currentColor"
                 >
@@ -98,52 +93,52 @@ export default function Footer() {
               </div>
             </div>
             <div className="text-accent">
-              <ul>
-                <li className="text-left">
-                  <Button variant="link" className="text-accent text-base" asChild>
+              <ul className="space-y-2">
+                <li>
+                  <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
                     <Link href="#">FAQ</Link>
                   </Button>
                 </li>
-                <li className="text-left">
-                  <Button variant="link" className="text-accent text-base" asChild>
+                <li>
+                  <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
                     <Link href="#">Careers</Link>
                   </Button>
                 </li>
-                <li className="text-left">
-                  <Button variant="link" className="text-accent text-base" asChild>
+                <li>
+                  <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
                     <Link href="#">Join Us</Link>
                   </Button>
                 </li>
               </ul>
             </div>
-            <div className="text-accent text-left">
-              <Label>Stay in Touch</Label>
-              <div className="mt-1 mb-2 flex">
+            <div className="text-accent">
+              <Label className="text-sm sm:text-base">Stay in Touch</Label>
+              <div className="mt-2 mb-2 flex">
                 <Input
-                  className='w-full rounded-none border-r-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='E-mail adress'
+                  className='w-full rounded-none border-r-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent text-sm'
+                  placeholder='E-mail address'
                 />
                 <Button
                   variant="ghost"
                   size="icon"
                   className="w-9 h-9 shrink-0 bg-primary border border-l-0 hover:text-primary"
                 >
-                  <ChevronRight className="!w-6 !h-6" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </div>
-              <span>
+              <span className="text-xs sm:text-sm">
                 Join our mailing list to get the latest news, events & updates
               </span>
             </div>
             <div className="text-accent">
-              <ul>
-                <li className="text-left">
-                  <Button variant="link" className="text-accent text-base" asChild>
+              <ul className="space-y-2">
+                <li>
+                  <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
                     <Link href="#">info@betarus.org</Link>
                   </Button>
                 </li>
-                <li className="text-left">
-                  <Button variant="link" className="text-accent text-base" asChild>
+                <li>
+                  <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
                     <Link href="#">Legal Policies</Link>
                   </Button>
                 </li>

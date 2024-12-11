@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 interface TimelineItem {
   year: string
@@ -45,12 +46,12 @@ export default function Timeline() {
   }
 
   return (
-    <div className="overflow-hidden pb-24 sm:pb-32 w-full">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex items-center justify-between border-b border-foreground mb-8 pb-4">
-          <h1 className="text-2xl font-bold">Timeline</h1>
+    <div className="overflow-hidden pb-12 sm:pb-16 md:pb-24 lg:pb-32 w-full">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-row items-center justify-between border-b border-foreground mb-6 sm:mb-8 pb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold">Timeline</h2>
           <div className="flex items-center gap-4">
-            <span className="text-lg">
+            <span className="text-base sm:text-lg">
               {currentIndex + 1}/{timelineData.length}
             </span>
             <div className="flex gap-2">
@@ -60,7 +61,7 @@ export default function Timeline() {
                 size="icon"
                 variant="ghost"
               >
-                <ArrowLeft className="!w-6 !h-6" />
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               </Button>
               <Button
                 onClick={handleNext}
@@ -68,18 +69,18 @@ export default function Timeline() {
                 size="icon"
                 variant="ghost"
               >
-                <ArrowRight className="!w-6 !h-6" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="mb-20 flex justify-between gap-8 overflow-hidden">
+        <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-20 flex justify-between gap-2 sm:gap-4 md:gap-6 lg:gap-8 overflow-x-auto">
           {timelineData.map((item, index) => (
             <button
               key={item.year}
               onClick={() => setCurrentIndex(index)}
-              className={`text-7xl font-bold transition-colors duration-500 focus:outline-none ${index === currentIndex
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold transition-colors duration-500 focus:outline-none whitespace-nowrap px-2 ${index === currentIndex
                 ? 'text-black'
                 : index > currentIndex
                   ? 'text-gray-200'
@@ -98,18 +99,20 @@ export default function Timeline() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-32"
+            className="grid md:grid-cols-2 gap-8 md:gap-16 lg:gap-32"
           >
-            <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
-              <img
+            <div className="aspect-[2/1] lg:aspect-square bg-gray-100 overflow-hidden">
+              <Image
                 src={timelineData[currentIndex].image}
                 alt={timelineData[currentIndex].title}
+                width={800}
+                height={800}
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex flex-col justify-end gap-8 max-w-80">
-              <h3 className="text-5xl font-bold mb-4">{timelineData[currentIndex].title}</h3>
-              <p className="leading-relaxed">
+            <div className="flex flex-col justify-end gap-4 sm:gap-6 md:gap-8 max-w-full md:max-w-80">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">{timelineData[currentIndex].title}</h3>
+              <p className="text-base sm:text-lg leading-relaxed">
                 {timelineData[currentIndex].description}
               </p>
             </div>

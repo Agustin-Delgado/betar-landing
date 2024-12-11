@@ -26,7 +26,7 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from 'lucide-react'
 
 const contributions = [
   {
@@ -70,8 +70,8 @@ const contributions = [
     label: "Provide Venue or Space"
   },
   {
-    id: "Promote Betar’s Mission",
-    label: "Promote Betar’s Mission"
+    id: "Promote Betar's Mission",
+    label: "Promote Betar's Mission"
   },
   {
     id: "Other",
@@ -132,7 +132,7 @@ const FormSchema = z.object({
     message: "You have to select at least one item.",
   }),
   other_contribution: z.string().optional(),
-  is_student: z.enum(["Yes", "No"]),
+  is_student: z.enum(["Yes", "No", "N/A"]),
   university_name: z.string().optional(),
   available_to_protest: z.enum(["Yes", "No"]),
   message: z.string().optional(),
@@ -176,27 +176,27 @@ export default function JoinForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="flex gap-4 w-full">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
+        <div className="flex flex-col sm:flex-row gap-4 w-full">
           <FormField
             control={form.control}
             name="honorific"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">Mr.</FormLabel>
+              <FormItem className="w-full sm:w-1/4">
+                <FormLabel className="text-base sm:text-lg">Mr.</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger
-                      className="border-foreground rounded-none shadow-none h-16 text-lg"
+                      className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                     >
-                      <SelectValue placeholder="Select an honorific" />
+                      <SelectValue placeholder="Select" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="border-foreground rounded-none shadow-none">
-                    <SelectItem className="text-lg" value="Mr.">Mr.</SelectItem>
-                    <SelectItem className="text-lg" value="Mrs.">Mrs.</SelectItem>
-                    <SelectItem className="text-lg" value="Ms.">Ms.</SelectItem>
-                    <SelectItem className="text-lg" value="Dr.">Dr.</SelectItem>
+                    <SelectItem className="text-base sm:text-lg" value="Mr.">Mr.</SelectItem>
+                    <SelectItem className="text-base sm:text-lg" value="Mrs.">Mrs.</SelectItem>
+                    <SelectItem className="text-base sm:text-lg" value="Ms.">Ms.</SelectItem>
+                    <SelectItem className="text-base sm:text-lg" value="Dr.">Dr.</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -207,14 +207,14 @@ export default function JoinForm() {
             control={form.control}
             name="first_name"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">First name</FormLabel>
+              <FormItem className="w-full sm:w-3/8">
+                <FormLabel className="text-base sm:text-lg">First name</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your first name"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -225,14 +225,14 @@ export default function JoinForm() {
             control={form.control}
             name="last_name"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">Last name</FormLabel>
+              <FormItem className="w-full sm:w-3/8">
+                <FormLabel className="text-base sm:text-lg">Last name</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your last name"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -246,13 +246,13 @@ export default function JoinForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Email</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Email</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your email"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -266,13 +266,13 @@ export default function JoinForm() {
             name="address"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Address</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Address</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your address"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -280,19 +280,19 @@ export default function JoinForm() {
             )}
           />
         </div>
-        <div className="flex gap-4 w-full">
+        <div className="flex flex-col sm:flex-row gap-4 w-full">
           <FormField
             control={form.control}
             name="city"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">City</FormLabel>
+              <FormItem className="w-full sm:w-1/3">
+                <FormLabel className="text-base sm:text-lg">City</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your city"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -303,14 +303,14 @@ export default function JoinForm() {
             control={form.control}
             name="state"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">State</FormLabel>
+              <FormItem className="w-full sm:w-1/3">
+                <FormLabel className="text-base sm:text-lg">State</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your state"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -321,14 +321,14 @@ export default function JoinForm() {
             control={form.control}
             name="zip"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">Zip</FormLabel>
+              <FormItem className="w-full sm:w-1/3">
+                <FormLabel className="text-base sm:text-lg">Zip</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your zip"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -336,19 +336,19 @@ export default function JoinForm() {
             )}
           />
         </div>
-        <div className="flex gap-4 w-full">
+        <div className="flex flex-col sm:flex-row gap-4 w-full">
           <FormField
             control={form.control}
             name="home_phone"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">Home phone</FormLabel>
+              <FormItem className="w-full sm:w-1/2">
+                <FormLabel className="text-base sm:text-lg">Home phone</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your home phone"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -359,14 +359,14 @@ export default function JoinForm() {
             control={form.control}
             name="cell_phone"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel className="text-lg">Cell phone</FormLabel>
+              <FormItem className="w-full sm:w-1/2">
+                <FormLabel className="text-base sm:text-lg">Cell phone</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="Enter your cell phone"
-                    className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                    className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                   />
                 </FormControl>
                 <FormMessage />
@@ -380,12 +380,12 @@ export default function JoinForm() {
             name="is_zionist"
             render={({ field }) => (
               <FormItem className="space-y-3">
-                <FormLabel className="text-lg">Are you a Zionist?</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Are you a Zionist?</FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex gap-4"
+                    className="flex flex-col sm:flex-row gap-2 sm:gap-4"
                   >
                     {is_zionist.map((item) => (
                       <FormItem
@@ -393,9 +393,9 @@ export default function JoinForm() {
                         className="flex items-center space-x-3 space-y-0"
                       >
                         <FormControl>
-                          <RadioGroupItem value={item.id} className="text-lg" />
+                          <RadioGroupItem value={item.id} className="text-base sm:text-lg" />
                         </FormControl>
-                        <FormLabel className="text-lg font-normal">
+                        <FormLabel className="text-base sm:text-lg font-normal">
                           {item.label}
                         </FormLabel>
                       </FormItem>
@@ -413,40 +413,42 @@ export default function JoinForm() {
             name="contributions"
             render={() => (
               <FormItem>
-                <FormLabel className="text-lg">How Would you like to Contribute? (check all that apply)</FormLabel>
-                {contributions.map((item) => (
-                  <FormField
-                    key={item.id}
-                    control={form.control}
-                    name="contributions"
-                    render={({ field }) => {
-                      return (
-                        <FormItem
-                          className="flex flex-row items-center space-x-3 space-y-0"
-                        >
-                          <FormControl>
-                            <Checkbox
-                              className="shadow-none"
-                              checked={field.value?.includes(item.id)}
-                              onCheckedChange={(checked) => {
-                                return checked
-                                  ? field.onChange([...field.value, item.id])
-                                  : field.onChange(
-                                    field.value?.filter(
-                                      (value) => value !== item.id
+                <FormLabel className="text-base sm:text-lg">How Would you like to Contribute? (check all that apply)</FormLabel>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+                  {contributions.map((item) => (
+                    <FormField
+                      key={item.id}
+                      control={form.control}
+                      name="contributions"
+                      render={({ field }) => {
+                        return (
+                          <FormItem
+                            className="flex flex-row items-start space-x-3 space-y-0"
+                          >
+                            <FormControl>
+                              <Checkbox
+                                className="mt-1 shadow-none"
+                                checked={field.value?.includes(item.id)}
+                                onCheckedChange={(checked) => {
+                                  return checked
+                                    ? field.onChange([...field.value, item.id])
+                                    : field.onChange(
+                                      field.value?.filter(
+                                        (value) => value !== item.id
+                                      )
                                     )
-                                  )
-                              }}
-                            />
-                          </FormControl>
-                          <FormLabel className="text-lg font-normal">
-                            {item.label}
-                          </FormLabel>
-                        </FormItem>
-                      )
-                    }}
-                  />
-                ))}
+                                }}
+                              />
+                            </FormControl>
+                            <FormLabel className="text-base sm:text-lg font-normal">
+                              {item.label}
+                            </FormLabel>
+                          </FormItem>
+                        )
+                      }}
+                    />
+                  ))}
+                </div>
                 <FormMessage />
               </FormItem>
             )}
@@ -457,13 +459,13 @@ export default function JoinForm() {
               name="other_contribution"
               render={({ field }) => (
                 <FormItem className="w-full mt-4">
-                  <FormLabel className="text-lg">Other Contribution</FormLabel>
+                  <FormLabel className="text-base sm:text-lg">Other Contribution</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       type="text"
                       placeholder="Enter your other contribution"
-                      className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                      className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                     />
                   </FormControl>
                   <FormMessage />
@@ -478,12 +480,12 @@ export default function JoinForm() {
             name="is_student"
             render={({ field }) => (
               <FormItem className="space-y-3">
-                <FormLabel className="text-lg">Are you a student? If so, which University?</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Are you a student? If so, which University?</FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex gap-4"
+                    className="flex flex-col sm:flex-row gap-2 sm:gap-4"
                   >
                     {is_student.map((item) => (
                       <FormItem
@@ -491,9 +493,9 @@ export default function JoinForm() {
                         className="flex items-center space-x-3 space-y-0"
                       >
                         <FormControl>
-                          <RadioGroupItem value={item.id} className="text-lg" />
+                          <RadioGroupItem value={item.id} className="text-base sm:text-lg" />
                         </FormControl>
-                        <FormLabel className="text-lg font-normal">
+                        <FormLabel className="text-base sm:text-lg font-normal">
                           {item.label}
                         </FormLabel>
                       </FormItem>
@@ -510,13 +512,13 @@ export default function JoinForm() {
               name="university_name"
               render={({ field }) => (
                 <FormItem className="w-full mt-4">
-                  <FormLabel className="text-lg">University Name</FormLabel>
+                  <FormLabel className="text-base sm:text-lg">University Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       type="text"
                       placeholder="Enter your university name"
-                      className="border-foreground rounded-none shadow-none h-16 !text-lg"
+                      className="border-foreground rounded-none shadow-none h-12 sm:h-16 text-base sm:text-lg"
                     />
                   </FormControl>
                   <FormMessage />
@@ -531,12 +533,12 @@ export default function JoinForm() {
             name="available_to_protest"
             render={({ field }) => (
               <FormItem className="space-y-3">
-                <FormLabel className="text-lg">Will you show up to protest and counter protest if notified?</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Will you show up to protest and counter protest if notified?</FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex gap-4"
+                    className="flex flex-col sm:flex-row gap-2 sm:gap-4"
                   >
                     {available_to_protest.map((item) => (
                       <FormItem
@@ -544,9 +546,9 @@ export default function JoinForm() {
                         className="flex items-center space-x-3 space-y-0"
                       >
                         <FormControl>
-                          <RadioGroupItem value={item.id} className="text-lg" />
+                          <RadioGroupItem value={item.id} className="text-base sm:text-lg" />
                         </FormControl>
-                        <FormLabel className="text-lg font-normal">
+                        <FormLabel className="text-base sm:text-lg font-normal">
                           {item.label}
                         </FormLabel>
                       </FormItem>
@@ -564,12 +566,12 @@ export default function JoinForm() {
             name="message"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Tell us what you believe are the most pressing Antizionist, Anti-Semitic issues to take on?</FormLabel>
+                <FormLabel className="text-base sm:text-lg">Tell us what you believe are the most pressing Antizionist, Anti-Semitic issues to take on?</FormLabel>
                 <FormControl>
                   <Textarea
                     {...field}
                     placeholder="Enter your message"
-                    className="border-foreground rounded-none shadow-none h-32 !text-lg resize-none"
+                    className="border-foreground rounded-none shadow-none h-24 sm:h-32 text-base sm:text-lg resize-none"
                   />
                 </FormControl>
                 <FormMessage />
@@ -590,18 +592,18 @@ export default function JoinForm() {
                     className="shadow-none"
                   />
                 </FormControl>
-                <FormLabel className="text-lg font-normal !m-0">
-                  Receive Betar’s newsletter and updates to stay informed about news and events.
+                <FormLabel className="text-base sm:text-lg font-normal !m-0">
+                  Receive Betar's newsletter and updates to stay informed about news and events.
                 </FormLabel>
               </FormItem>
             )}
           />
         </div>
         <Button
-          className="bg-primary text-white font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 border text-lg sm:text-xl hover:bg-accent hover:text-foreground group hover:border-primary"
+          className="bg-primary text-white font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 border text-base sm:text-lg md:text-xl hover:bg-accent hover:text-foreground group hover:border-primary"
         >
           Submit
-          <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
+          <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
         </Button>
       </form>
     </Form>

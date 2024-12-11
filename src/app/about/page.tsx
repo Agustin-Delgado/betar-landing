@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Input } from "@/components/ui/input";
 import Footer from "../components/footer";
 import Link from "next/link";
+import NewsletterForm from "../components/newsletter-form";
 
 const carousel_one = [
   {
@@ -87,15 +88,16 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden">
-      <Header className="text-foreground" />
-      <div className="flex-grow flex flex-col justify-center pt-24 sm:pt-36 pb-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <Header className="text-foreground w-full" />
+
+      <div className="flex-grow flex flex-col justify-center pt-24 md:pt-32 lg:pt-36 pb-8 sm:pb-12">
+        <div className="container mx-auto px-4 sm:px-8">
           <div className="flex flex-col items-start gap-4 md:gap-8 mb-12">
-            <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-9xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold tracking-tighter">
               About Us
             </h1>
-            <div className="max-w-[700px] md:ml-96">
-              <p className="text-xl md:text-2xl font-semibold">
+            <div className="max-w-[700px] md:ml-0 lg:ml-96">
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold">
                 Betar is a Zionist educational organization dedicated to fostering Jewish pride, resilience, and leadership.
               </p>
             </div>
@@ -103,7 +105,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="relative max-h-[500px] max-w-[1920px] overflow-hidden">
+      <div className="relative w-full max-h-[500px] overflow-hidden">
         <Image
           src="/about-banner.jpg"
           alt="Jews fight"
@@ -114,12 +116,12 @@ export default function AboutPage() {
         />
       </div>
 
-      <div className="container mx-auto px-4 pt-24 max-w-7xl">
-        <h1 className="text-[4rem] font-bold mb-20 tracking-tight">
+      <div className="container mx-auto px-4 sm:px-8 py-24 sm:py-32 max-w-7xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-bold mb-6 tracking-tight">
           Our Mission
-        </h1>
-        <div className="flex justify-between relative">
-          <div className="relative w-[739px] h-[512px] ">
+        </h2>
+        <div className="flex flex-col lg:flex-row justify-between relative gap-8 lg:gap-16">
+          <div className="relative w-full lg:w-[60%] aspect-[16/11] hidden lg:block">
             <Image
               src="/8492adf31a79aeaf6bacb0a1b6174daf.png"
               alt="Israeli flag waving in daylight"
@@ -128,8 +130,8 @@ export default function AboutPage() {
               priority
             />
           </div>
-          <div className="space-y-8 flex flex-col items-end w-min relative top-[-118px]">
-            <div className="relative w-[413px] h-[437px]">
+          <div className="space-y-8 flex flex-col items-start lg:items-end w-full lg:w-[40%] lg:relative lg:top-[-118px]">
+            <div className="relative w-full aspect-[2/1] lg:aspect-[16/17]">
               <Image
                 src="/7df5457cdfcf6e74ba3c34057c68eac8.png"
                 alt="Rally with Israeli flags"
@@ -137,14 +139,12 @@ export default function AboutPage() {
                 fill
               />
             </div>
-
             <div className="space-y-6 font-medium">
-              <p className="text-xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 Inspired by the vision of our founder, Ze&apos;ev Jabotinsky, Betar empowers Jews
                 to stand strong, speak out, and defend their heritage and Israel against all threats.
               </p>
-
-              <p className="text-xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 With the motto &quot;Jews Fight Back,&quot; we are committed to active resistance against
                 antisemitism and anti-Israel sentiments through bold, unapologetic action.
               </p>
@@ -153,14 +153,14 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white pb-24 sm:pb-32">
+      <div className="overflow-hidden bg-primary lg:bg-background py-24 sm:py-32 w-full">
         <div className="mx-auto">
           <div className='relative'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="614" viewBox="0 0 1440 614" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 614" fill="none" className="w-full h-auto invisible lg:visible">
               <path fillRule="evenodd" clipRule="evenodd" d="M1549.73 614L1569.79 0.225403L-49.4822 73.7413L-80.7817 583.726L1549.73 614Z" fill="#134CDD" />
             </svg>
-            <div className='absolute inset-0 flex items-center justify-center flex-col'>
-              <p className="text-center text-2xl font-semibold text-accent max-w-3xl">
+            <div className='absolute inset-0 flex items-center justify-center flex-col px-4 sm:px-8'>
+              <p className="text-center text-lg sm:text-4xl font-semibold text-accent max-w-3xl">
                 Betar exists to lead Jews and inspire action. Our mission is simple: Jews Fight Back! Guided by the words of our founder, Ze&apos;ev Jabotinsky, &quot;Silence is Despicable,&quot; we are a movement dedicated to instilling pride, strength, and resilience in Jews everywhere.
               </p>
             </div>
@@ -168,32 +168,32 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-32 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
-            <div className="relative w-[629px] h-[582px] overflow-hidden">
-              <Image
-                alt="Jewish students"
-                src="/4362ea3e0dce40ae4d9cdab400153186.jpg"
-                fill
-                className="object-cover object-center scale-125"
-              />
-            </div>
-            <div>
-              <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
-                What we do
-              </h2>
-              <p className="mt-12 text-xl font-medium leading-7">
-                We empower and encourage Jews to embrace their identity, take action, support Israel and take active roles in their communities through programs and events. We envision a world where Jews everywhere feel empowered to protect their communities, defend Israel, and act with unwavering commitment to Jewish values. Betar fosters this future by developing strong, active voices that inspire and create lasting impact.
-              </p>
-            </div>
+      <div className="overflow-hidden w-full py-24 sm:py-32 max-w-7xl px-4 sm:px-8">
+        <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
+          <div className="relative w-full aspect-[2/1] lg:aspect-[16/17] overflow-hidden">
+            <Image
+              alt="Jewish students"
+              src="/4362ea3e0dce40ae4d9cdab400153186.jpg"
+              fill
+              className="object-cover object-center scale-125"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl mb-6">
+              What we do
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium leading-7">
+              We empower and encourage Jews to embrace their identity, take action, support Israel and take active roles in their communities through programs and events. We envision a world where Jews everywhere feel empowered to protect their communities, defend Israel, and act with unwavering commitment to Jewish values. Betar fosters this future by developing strong, active voices that inspire and create lasting impact.
+            </p>
           </div>
         </div>
       </div>
 
-      <CardCarousel carouselData={carousel_one} />
+      <div className="py-24 sm:py-32 px-4">
+        <CardCarousel carouselData={carousel_one} />
+      </div>
 
-      <div className="overflow-hidden bg-white pb-24 sm:pb-32">
+      <div className="overflow-hidden bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <div className='relative'>
             <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="625" viewBox="0 0 1280 625" fill="none" className='transform rotate-180'>
@@ -226,76 +226,78 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
+      <div className="overflow-hidden bg-white py-24 sm:py-32 w-full">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
             <div>
-              <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl mb-6">
                 Our History
               </h2>
-              <p className="mt-16 text-xl font-medium leading-7">
+              <p className="text-base sm:text-lg md:text-xl font-medium leading-7">
                 Betar was founded in 1923 by Ze&apos;ev Jabotinsky, as a movement dedicated to strengthening Jewish identity and self-defense. Over nearly a century, Betar has grown into a global community, empowering generations to embrace their heritage with pride and courage. Our story is one of resilience, commitment, and unity, spanning from our earliest days in Europe to our present-day international reach.
               </p>
             </div>
-            <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
+            <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
                 src="/fd2971d4352ba17cb23047d0f140e03f.jpeg"
                 className="w-full h-full object-cover"
                 width={820}
-                height={547}
+                height={820}
               />
             </div>
           </div>
         </div>
       </div>
 
-      <Timeline />
+      <div className="py-24 sm:py-32">
+        <Timeline />
+      </div>
 
-      <div className="max-w-7xl mx-auto p-8 grid gap-8 flex-1 flex-grow">
+      <div className="max-w-7xl mx-auto p-4 sm:p-8 grid gap-8 flex-1 flex-grow py-24 sm:py-32">
         <div className="text-primary flex flex-col gap-4">
-          <blockquote className="text-7xl font-bold leading-tight">
+          <blockquote className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             &quot;There is no mightier weapon than indifference, you will never conquer it.&quot;
           </blockquote>
-          <cite className="text-xl">— Ze&apos;ev Jabotinsky</cite>
+          <cite className="text-lg sm:text-xl">— Ze&apos;ev Jabotinsky</cite>
         </div>
 
-        <div className="grid grid-cols-2 mt-8 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-16 lg:gap-0">
           <div className="relative flex flex-col z-20 items-center">
-            <div className="bg-primary w-full aspect-[3/4] max-h-[600px] max-w-[500px] mt-40 ml-24" />
-            <div className="z-10 mt-20">
+            <div className="bg-primary w-full aspect-[3/4] max-h-[600px] max-w-[500px] mt-20 lg:mt-40 lg:ml-24" />
+            <div className="z-10 mt-10 lg:mt-20 w-full max-w-[400px]">
               <Image
                 src="/131de7f55f1806eebfca97668a247826.jpeg"
                 alt="Historical group photo"
                 width={400}
                 height={300}
-                className="w-full object-cover -left-8 absolute top-1/2 transform -translate-y-1/2"
+                className="w-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               />
             </div>
             <Button
-              className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+              className="mt-8 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               asChild
             >
               <Link href="/about/ideology">
                 Learn More
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Link>
             </Button>
           </div>
 
-          <div className="space-y-6 flex flex-col items-center gap-16 transform translate-x-[5rem] -translate-y-[5rem]">
-            <div className="aspect-[5/3]">
+          <div className="space-y-6 flex flex-col items-center gap-8 lg:transform lg:translate-x-[5rem] lg:-translate-y-[5rem]">
+            <div className="aspect-[5/3] w-full max-w-[900px]">
               <Image
                 src="/fb65dabcc10a7f4bcea9085829df2a62.jpeg"
                 alt="Portrait photo"
-                width={500}
-                height={400}
-                className="min-w-[900px] h-full object-cover"
+                width={900}
+                height={540}
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="space-y-4 max-w-[500px] flex flex-col gap-8">
-              <h1 className="text-7xl font-bold">Ideology</h1>
-              <p className="leading-relaxed font-medium text-xl">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">Ideology</h2>
+              <p className="leading-relaxed font-medium text-base sm:text-lg md:text-xl">
                 Betar&apos;s ideology is rooted in core principles that guide every action and inspire our members:
                 <br />
                 <strong>Ahavat Yisrael{" "}</strong> Love of Israel
@@ -313,58 +315,60 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-20 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
+      <div className="overflow-hidden bg-white py-24 sm:py-32 w-full">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
             <div>
-              <h2 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold max-w-5xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl mb-6">
                 Leadership Team
               </h2>
-              <p className="mt-16 text-xl font-medium leading-7">
+              <p className="text-base sm:text-lg md:text-xl font-medium leading-7 mb-6">
                 Meet the leaders who uphold Betar&apos;s mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky&apos;s legacy.
               </p>
               <Button
-                className="mt-8 sm:mt-12 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
+                className="border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               >
                 Meet the Team
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Button>
             </div>
-            <div className="aspect-[1/1] bg-gray-100 overflow-hidden">
+            <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
                 src="/e8c7d01f50f9f635b49b17627fc1d245.jpeg"
                 className="w-full h-full object-cover"
                 width={820}
-                height={547}
+                height={820}
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-full px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl text-center">
-          <h2 className="mt-2 text-balance text-5xl font-bold sm:text-7xl">
+          <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
             Reading Materials
           </h2>
         </div>
-        <p className="mx-auto mt-6  text-pretty text-center text-xl font-medium max-w-7xl mb-10">
+        <p className="mx-auto mt-6 text-base sm:text-lg md:text-xl font-medium max-w-7xl mb-10 text-center">
           Explore Betar&apos;s recommended reading list to deepen your understanding of Jewish resilience, Zionist history, and the legacy of Ze&apos;ev Jabotinsky:
         </p>
         <CardCarousel carouselData={carousel_two} />
       </div>
 
-      <div className="overflow-hidden pb-24 sm:pb-32 w-full">
-        <div className="mx-auto max-w-7xl">
+      <div className="overflow-hidden py-24 sm:py-32 w-full">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex items-center justify-between border-t border-foreground pt-4 mb-10">
-            <h1 className="text-2xl font-bold">Frequently asked quesitons</h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Frequently asked questions</h2>
           </div>
           <Accordion type="single" collapsible>
             {accordion.map((item) => (
-              <AccordionItem className="py-8" key={item.id} value={`item-${item.id}`}>
-                <AccordionTrigger className="text-5xl font-bold hover:text-primary [&[data-state=open]]:text-primary">{item.title}</AccordionTrigger>
-                <AccordionContent className="text-xl">
+              <AccordionItem className="py-4 sm:py-6 md:py-8" key={item.id} value={`item-${item.id}`}>
+                <AccordionTrigger className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold hover:text-primary [&[data-state=open]]:text-primary">
+                  {item.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-base sm:text-lg md:text-xl">
                   {item.description}
                 </AccordionContent>
               </AccordionItem>
@@ -373,50 +377,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-primary p-24 mb-32 max-w-7xl">
-        <div className="mx-auto max-w-[90rem]">
-          <div className="mx-auto max-w-7xl text-left">
-            <h2 className="mt-2 text-balance text-5xl font-bold sm:text-6xl text-accent">
-              Get alerts and receive the latest news, events, and updates from Betar.
-            </h2>
-          </div>
-          <div className="py-24 sm:py-32 !pb-0">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='First Name'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Last Name'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Email'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='Phone Number'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='State'
-                />
-                <Input
-                  className='w-full rounded-none border-t-0 border-x-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent'
-                  placeholder='City'
-                />
-              </dl>
-              <Button
-                className="mt-28 bg-accent border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group"
-              >
-                Submit
-                <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
-              </Button>
-            </div>
-          </div>
-        </div>
+      <div className="py-24 sm:py-32">
+        <NewsletterForm />
       </div>
 
       <Footer />
