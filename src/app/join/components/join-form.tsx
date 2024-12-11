@@ -593,7 +593,7 @@ export default function JoinForm() {
                   />
                 </FormControl>
                 <FormLabel className="text-base sm:text-lg font-normal !m-0">
-                  Receive Betar's newsletter and updates to stay informed about news and events.
+                  Receive Betar&apos;s newsletter and updates to stay informed about news and events.
                 </FormLabel>
               </FormItem>
             )}

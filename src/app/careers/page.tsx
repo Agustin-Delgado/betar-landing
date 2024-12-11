@@ -48,7 +48,7 @@ export default function CareersPage() {
                   Careers
                 </h1>
                 <p className="mt-6 sm:mt-8 md:mt-12 lg:mt-16 text-base sm:text-lg md:text-xl font-medium leading-7">
-                  If you think you might be a good fit for our team, we would love to hear from you! If you don't find a suitable position, you can still send us an e-mail to
+                  If you think you might be a good fit for our team, we would love to hear from you! If you don&apos;t find a suitable position, you can still send us an e-mail to
                   {" "}
                   <Button
                     onClick={() => window.open("mailto:careers@betarus.org", "_blank")}
@@ -58,7 +58,7 @@ export default function CareersPage() {
                     careers@betarus.org
                   </Button>
                   {" "}
-                  with your experience or portfolio and tell us why you'd like to collaborate.
+                  with your experience or portfolio and tell us why you&apos;d like to collaborate.
                 </p>
               </div>
               <div className="aspect-[3/2] bg-gray-100 overflow-hidden">
