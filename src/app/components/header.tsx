@@ -30,6 +30,8 @@ export default function Header({
       }
     };
 
+    setIsScrolled(window.scrollY > 10);
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -38,6 +40,7 @@ export default function Header({
     <header className={cn(
       "h-16 sm:h-20 md:h-[76px] mx-auto w-full flex items-center justify-between fixed inset-x-0 top-0 z-50 text-accent px-4 sm:px-6 lg:px-8 transition-colors",
       isScrolled ? "bg-background border-b text-foreground" : "bg-transparent",
+      mobileMenuOpen && "bg-background border-b text-foreground",
       className
     )}>
       <div className="max-w-7xl flex items-center w-full justify-between mx-auto">

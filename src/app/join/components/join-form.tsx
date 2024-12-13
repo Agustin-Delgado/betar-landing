@@ -1,20 +1,21 @@
 "use client"
 
-import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, useWatch } from "react-hook-form"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import {
   Select,
   SelectContent,
@@ -22,11 +23,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight } from 'lucide-react'
+import { useToast } from "@/hooks/use-toast"
+import { ArrowRight, RotateCw } from 'lucide-react'
+import { useState } from "react"
 
 const contributions = [
   {
@@ -125,7 +125,7 @@ const FormSchema = z.object({
   city: z.string({ required_error: "Please enter your city." }).min(1, { message: "Please enter your city." }),
   state: z.string({ required_error: "Please enter your state." }).min(1, { message: "Please enter your state." }),
   zip: z.string({ required_error: "Please enter your zip code." }).min(1, { message: "Please enter your zip code." }),
-  home_phone: z.string({ required_error: "Please enter your home phone number." }).min(1, { message: "Please enter your home phone number." }),
+  home_phone: z.string(),
   cell_phone: z.string({ required_error: "Please enter your cell phone number." }).min(1, { message: "Please enter your cell phone number." }),
   is_zionist: z.enum(["Yes", "No"]),
   contributions: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -140,6 +140,10 @@ const FormSchema = z.object({
 })
 
 export default function JoinForm() {
+  const { toast } = useToast()
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -171,8 +175,31 @@ export default function JoinForm() {
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data)
+    setIsSubmitting(true)
+
+    fetch("https://script.google.com/macros/s/AKfycbzWTOzLealBb7yt8sdKV2VxY7vXKIieRepZag8CbTQwTczXlVbMX-dNOhR5wAuLqv7L/exec", {
+      method: "POST",
+      redirect: "follow",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(() => {
+        toast({
+          title: "Success",
+          description: "Your data has been submitted successfully.",
+        })
+        form.reset()
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
   }
+
 
   return (
     <Form {...form}>
@@ -603,7 +630,11 @@ export default function JoinForm() {
           className="bg-primary text-white font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 border text-base sm:text-lg md:text-xl hover:bg-accent hover:text-foreground group hover:border-primary"
         >
           Submit
-          <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
+          {isSubmitting ?
+            <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-accent animate-spin group-hover:text-primary" />
+            :
+            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
+          }
         </Button>
       </form>
     </Form>

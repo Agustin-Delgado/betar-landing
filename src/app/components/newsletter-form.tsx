@@ -9,8 +9,10 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, RotateCw } from 'lucide-react';
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -24,6 +26,10 @@ const FormSchema = z.object({
 })
 
 export default function NewsletterForm() {
+  const { toast } = useToast()
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -37,7 +43,34 @@ export default function NewsletterForm() {
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data)
+    setIsSubmitting(true)
+
+    const googleScriptURL = "https://script.google.com/macros/s/AKfycbxwtHDJF-fMniRwLl98wyrHoXCjQQVAwaoTeK6Tb14meZNxOxUdi28cVaTJ74dk9Fg1/exec";
+
+    fetch(googleScriptURL, {
+      method: "POST",
+      redirect: "follow",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al enviar datos");
+        }
+        toast({
+          title: "Success",
+          description: "Your data has been submitted successfully.",
+        })
+        form.reset()
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
   }
 
   return (
@@ -153,7 +186,11 @@ export default function NewsletterForm() {
                 className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28 bg-accent border text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               >
                 Submit
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                {isSubmitting ?
+                  <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary animate-spin group-hover:text-accent" />
+                  :
+                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                }
               </Button>
             </form>
           </Form>

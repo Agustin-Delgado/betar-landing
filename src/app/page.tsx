@@ -9,12 +9,14 @@ import Footer from './components/footer';
 import Header from "./components/header";
 import NewsletterForm from './components/newsletter-form';
 import CardCarousel from "./about/components/carousel";
+import NumberTicker from "@/components/ui/number-ticker";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: '%500' },
-  { id: 2, name: 'Antisemitic incidents on U.S college campuses from October 2023 to June 2024', value: '1,826' },
-  { id: 3, name: 'Antisemitic incidents across the U.S following October 7, 2023', value: '8,873' },
-  { id: 4, name: 'Bomb Threats targeting Jewish Institutions in 2023', value: '747' },
+  { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: 500 },
+  { id: 2, name: 'Antisemitic incidents on U.S college campuses from October 2023 to June 2024', value: 1826 },
+  { id: 3, name: 'Antisemitic incidents across the U.S following October 7, 2023', value: 8873 },
+  { id: 4, name: 'Bomb Threats targeting Jewish Institutions in 2023', value: 747 },
 ]
 
 const posts = [
@@ -60,6 +62,32 @@ const carousel = [
 ]
 
 export default function HomePage() {
+  const statsRef = useRef(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div>
       <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.jpeg')] flex flex-col">
@@ -76,17 +104,18 @@ export default function HomePage() {
             >
               <Link href="/join">
                 Join Us
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Link>
             </Button>
           </div>
           <div className="bg-[#EC1B24] flex items-center justify-center py-3 sm:py-4 md:py-5 lg:py-6 px-4 sm:px-6 lg:px-8">
             <Button
+              onClick={() => window.open('https://www.change.org/p/ban-sjp-students-for-justice-in-palestine-from-pitt-campus')}
               variant="link"
               className="text-muted text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold flex items-center flex-wrap justify-center text-center"
             >
               <span className="mr-2">Sign Petition to Ban SJP from College Campuses</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+              <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6" />
             </Button>
           </div>
         </div>
@@ -108,7 +137,7 @@ export default function HomePage() {
               >
                 <Link href="/about">
                   Learn More
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                 </Link>
               </Button>
             </div>
@@ -140,7 +169,7 @@ export default function HomePage() {
                 >
                   <Link href="/join">
                     Join Us
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                    <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                   </Link>
                 </Button>
                 <Button
@@ -148,7 +177,7 @@ export default function HomePage() {
                   onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
                 >
                   Donate
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
                 </Button>
               </div>
             </div>
@@ -170,7 +199,7 @@ export default function HomePage() {
 
       <div className="overflow-x-hidden bg-white">
         <div className="mx-auto max-w-[90rem] bg-primary">
-          <div className="relative">
+          <div className="relative" ref={statsRef}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1440 841"
@@ -202,11 +231,18 @@ export default function HomePage() {
                     {stats.map((stat) => (
                       <div
                         key={stat.id}
-                        className="flex flex-col items-center text-center"
+                        className="flex flex-col items-center text-center justify-between"
                       >
                         <dt className="text-xs sm:text-sm md:text-base text-accent mb-2">{stat.name}</dt>
                         <dd className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-accent">
-                          {stat.value}
+                          {statsVisible ? (
+                            <>
+                              <NumberTicker className="text-inherit" value={stat.value} />
+                              {stat.id === 1 && "%"}
+                            </>
+                          ) : (
+                            0
+                          )}
                         </dd>
                       </div>
                     ))}
@@ -230,7 +266,7 @@ export default function HomePage() {
                 className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 border-foreground bg-background border text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
               >
                 More News
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Button>
             </div>
             <Image

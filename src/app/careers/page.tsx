@@ -92,7 +92,7 @@ export default function CareersPage() {
                       className="bg-primary text-white font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 border text-sm sm:text-base md:text-lg lg:text-xl hover:bg-accent hover:text-foreground group hover:border-primary"
                     >
                       Apply Now
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
+                      <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
                     </Button>
                   </AccordionContent>
                 </AccordionItem>

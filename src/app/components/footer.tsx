@@ -1,16 +1,68 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowRight, ChevronRight, RotateCw } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const FormSchema = z.object({
+  email: z.string({ required_error: 'Email is required' }).email({ message: 'Invalid email address' }),
+})
 
 export default function Footer() {
+  const { toast } = useToast()
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      email: '',
+    }
+  })
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    setIsSubmitting(true)
+
+    const googleScriptURL = "https://script.google.com/macros/s/AKfycbxwtHDJF-fMniRwLl98wyrHoXCjQQVAwaoTeK6Tb14meZNxOxUdi28cVaTJ74dk9Fg1/exec";
+
+    fetch(googleScriptURL, {
+      method: "POST",
+      redirect: "follow",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al enviar datos");
+        }
+        toast({
+          title: "Success",
+          description: "Your data has been submitted successfully.",
+        })
+        form.reset()
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
+  }
+
   return (
     <div className="w-full h-full">
-      <div className="bg-primary py-12 sm:py-24 md:py-40 relative">
+      <div className="bg-primary py-12 sm:py-24 md:py-40 relative z-0">
         <img src="/footer-banner.png" alt="footer-banner" className="absolute inset-0 w-full h-full object-cover mix-blend-plus-lighter z-0" />
         <div className="text-center flex flex-col gap-2 relative z-10 px-4">
           <span className="text-balance text-3xl sm:text-5xl md:text-8xl font-semibold tracking-tight text-accent">
@@ -26,7 +78,7 @@ export default function Footer() {
             onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
           >
             Donate
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
           </Button>
         </div>
       </div>
@@ -96,39 +148,61 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
-                    <Link href="#">FAQ</Link>
+                    <Link href="/about#faq">
+                      FAQ
+                    </Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
-                    <Link href="#">Careers</Link>
+                    <Link href="/careers">Careers</Link>
                   </Button>
                 </li>
                 <li>
                   <Button variant="link" className="text-accent text-sm sm:text-base p-0 h-auto" asChild>
-                    <Link href="#">Join Us</Link>
+                    <Link href="/join">Join Us</Link>
                   </Button>
                 </li>
               </ul>
             </div>
             <div className="text-accent">
-              <Label className="text-sm sm:text-base">Stay in Touch</Label>
-              <div className="mt-2 mb-2 flex">
-                <Input
-                  className='w-full rounded-none border-r-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent text-sm'
-                  placeholder='E-mail address'
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="w-9 h-9 shrink-0 bg-primary border border-l-0 hover:text-primary"
-                >
-                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </Button>
-              </div>
-              <span className="text-xs sm:text-sm">
-                Join our mailing list to get the latest news, events & updates
-              </span>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="w-[250px]">
+                        <FormLabel className="text-sm sm:text-base">Stay in Touch</FormLabel>
+                        <FormControl>
+                          <div className="mt-2 mb-2 flex">
+                            <Input
+                              className='w-full rounded-none border-r-0 text-accent shadow-none placeholder:text-accent focus-visible:ring-accent text-sm'
+                              placeholder='E-mail address'
+                              {...field}
+                            />
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="w-9 h-9 shrink-0 bg-primary border border-l-0 hover:text-primary"
+                            >
+                              {isSubmitting ?
+                                <RotateCw className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                                :
+                                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                              }
+                            </Button>
+                          </div>
+                        </FormControl>
+                        <FormDescription className="text-xs sm:text-sm text-accent">
+                          Join our mailing list to get the latest news, events & updates
+                        </FormDescription>
+                      </FormItem>
+                    )}
+                  />
+
+                </form>
+              </Form>
             </div>
             <div className="text-accent">
               <ul className="space-y-2">

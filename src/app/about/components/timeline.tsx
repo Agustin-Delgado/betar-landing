@@ -61,7 +61,7 @@ export default function Timeline() {
                 size="icon"
                 variant="ghost"
               >
-                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                <ArrowLeft className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6" />
               </Button>
               <Button
                 onClick={handleNext}
@@ -69,13 +69,13 @@ export default function Timeline() {
                 size="icon"
                 variant="ghost"
               >
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6" />
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-20 flex justify-between gap-2 sm:gap-4 md:gap-6 lg:gap-8 overflow-x-auto">
+        <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-20 flex justify-between gap-2 sm:gap-4 md:gap-6 lg:gap-8 overflow-x-auto overflow-y-hidden">
           {timelineData.map((item, index) => (
             <button
               key={item.year}

@@ -357,7 +357,7 @@ export default function AboutPage() {
         <CardCarousel carouselData={carousel_two} />
       </div>
 
-      <div className="overflow-hidden py-24 sm:py-32 w-full">
+      <div id="faq" className="overflow-hidden py-24 sm:py-32 w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex items-center justify-between border-t border-foreground pt-4 mb-10">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Frequently asked questions</h2>
