@@ -21,16 +21,16 @@ const stats = [
 
 const posts = [
   {
-    src: '/news1.png',
+    src: '/news1.webp',
   },
   {
-    src: '/news2.png',
+    src: '/news2.webp',
   },
   {
-    src: '/news3.png',
+    src: '/news3.webp',
   },
   {
-    src: '/news4.png',
+    src: '/news4.webp',
   },
 ]
 
@@ -90,7 +90,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.jpeg')] flex flex-col">
+      <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.webp')] flex flex-col">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
         <div className="relative z-10 flex flex-col h-full">
           <Header />
@@ -143,7 +143,7 @@ export default function HomePage() {
             </div>
             <Image
               alt="Jewish students"
-              src="/dims.jpeg"
+              src="/dims.webp"
               width={820}
               height={547}
               className="w-full h-auto"
@@ -271,7 +271,7 @@ export default function HomePage() {
             </div>
             <Image
               alt="Jewish students"
-              src="/newspaper.png"
+              src="/newspaper.webp"
               width={820}
               height={547}
               className="w-full h-auto"

@@ -50,8 +50,9 @@ export default function IdeologyPage() {
             <div className="aspect-square bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/92e9276fd5611ed60cc1069078241172.png"
+                src="/92e9276fd5611ed60cc1069078241172.webp"
                 className="w-full h-full object-cover"
+                priority
                 width={820}
                 height={820}
               />
@@ -67,9 +68,11 @@ export default function IdeologyPage() {
               <div className="absolute inset-0 lg:inset-x-8 lg:inset-y-12">
                 <Image
                   alt="Jewish students"
-                  src="/dd85a526884b343cd34605b4c25d6740.jpeg"
+                  src="/dd85a526884b343cd34605b4c25d6740.webp"
                   className="w-full h-full object-cover"
+                  objectFit="cover"
                   layout="fill"
+                  sizes="(min-width: 1024px) 820px, (min-width: 768px) 50vw, 100vw"
                 />
               </div>
             </div>
@@ -99,7 +102,7 @@ export default function IdeologyPage() {
             <div className="aspect-square bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/95a7c0cc1fcc1bc2f9c9b2699eb977fe.jpeg"
+                src="/95a7c0cc1fcc1bc2f9c9b2699eb977fe.webp"
                 className="w-full h-full object-cover"
                 width={820}
                 height={820}
@@ -124,7 +127,7 @@ export default function IdeologyPage() {
             <div className="aspect-square bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/6aa8e3dc7dc614eb8c2d4fa42127f97f.png"
+                src="/6aa8e3dc7dc614eb8c2d4fa42127f97f.webp"
                 className="w-full h-full object-cover"
                 width={820}
                 height={820}
@@ -153,7 +156,7 @@ export default function IdeologyPage() {
         <div className="relative">
           <div className="aspect-[16/9] w-full">
             <Image
-              src="/fb65dabcc10a7f4bcea9085829df2a62.jpeg"
+              src="/fb65dabcc10a7f4bcea9085829df2a62.webp"
               alt="Historical black and white portrait"
               layout="fill"
               objectFit="cover"
@@ -173,7 +176,7 @@ export default function IdeologyPage() {
             <div className="aspect-square bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/2f17debf72fd27bef80ed4f37ebbaee9.jpeg"
+                src="/2f17debf72fd27bef80ed4f37ebbaee9.webp"
                 className="w-full h-full object-cover"
                 width={820}
                 height={820}

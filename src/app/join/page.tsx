@@ -27,7 +27,7 @@ export default function JoinPage() {
 
         <section className="relative w-full max-h-[600px] overflow-hidden">
           <Image
-            src="/dda00f487f3afccabb5368fed7d367f3.jpeg"
+            src="/dda00f487f3afccabb5368fed7d367f3.webp"
             alt="Jews fight"
             width={1920}
             height={1080}

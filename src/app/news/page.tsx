@@ -358,9 +358,10 @@ export default function NewsPage() {
             </div>
             <div className="relative aspect-[4/3] lg:aspect-auto">
               <Image
-                src="/b6b5179eb7dd6e981791dd1bcce55ace.png"
+                src="/b6b5179eb7dd6e981791dd1bcce55ace.webp"
                 alt="News article featured image"
                 className="object-cover border"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 fill
                 priority
               />

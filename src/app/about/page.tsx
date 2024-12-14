@@ -18,19 +18,19 @@ const carousel_one = [
     id: 1,
     title: "Advocacy & Activism",
     description: "Betar is a Zionist educational organization dedicated to fostering Jewish pride, resilience, and leadership.",
-    imageUrl: "/c98c70e1d0c1f48fcdf3da25d2c7ab9a.jpg"
+    imageUrl: "/c98c70e1d0c1f48fcdf3da25d2c7ab9a.webp"
   },
   {
     id: 2,
     title: "Educational Programs",
     description: "Betar offers a range of educational programs, including leadership training, Hebrew language courses, and cultural events.",
-    imageUrl: "/4eea75d089fe14bc91584c7b5531954d.png"
+    imageUrl: "/4eea75d089fe14bc91584c7b5531954d.webp"
   },
   {
     id: 3,
     title: "Comunity Defense",
     description: "Graffiti Removal: We take swift action to remove antisemitic graffiti and hateful symbols, restoring pride and safety to public spaces. Doxing and Threat Response: Betar provides immediate support to Jews facing doxing, threats, and online harassment, mobilizing resources to protect them.",
-    imageUrl: "/c98c70e1d0c1f48fcdf3da25d2c7ab9a.jpg"
+    imageUrl: "/c98c70e1d0c1f48fcdf3da25d2c7ab9a.webp"
   },
 ]
 
@@ -39,25 +39,25 @@ const carousel_two = [
     id: 1,
     title: "A Life",
     description: "A well-written, passionate survey of Jabotinsky's life and contributions to political Zionism.",
-    imageUrl: "/2c745b84e5c46dd1a90c05b0fb67035a.jpeg"
+    imageUrl: "/2c745b84e5c46dd1a90c05b0fb67035a.webp"
   },
   {
     id: 2,
     title: "Terror Out of Zion",
     description: "This is the definitive story of desperate, dedicated revolutionaries who were driven to conclude that lives must be taken if Israel were to live",
-    imageUrl: "/4b1268f26ee918436ad29319fc28f99e.jpeg"
+    imageUrl: "/4b1268f26ee918436ad29319fc28f99e.webp"
   },
   {
     id: 3,
     title: "The Battle for Israel's Soul",
     description: "Reviled as a fascist by his great rival Ben-Gurion, venerated by Israel's underclass, the first Israeli to win the Nobel Peace Prize, a proud Jew but not a conventionally religious one, Menachem Begin was both complex and controversial",
-    imageUrl: "/3f6bb944f8f0742663326e860cba149e.jpeg"
+    imageUrl: "/3f6bb944f8f0742663326e860cba149e.webp"
   },
   {
     id: 4,
     title: "Story of the Irgun",
     description: "Russian-Israeli politician Menachem Begin from 1943 led Irgun, the Zionist underground movement in Palestine, until the establishment in 1948 and afterward, known for his hard-line views on the Arabs, as prime minister from 1977 to 1983 strove to resolve the conflict and shared the Nobel Prize for peace of 1978 with Muhammad Anwar el-Sadat of Egypt.",
-    imageUrl: "/879802f937b77f64470ddfd61c7ede21.jpeg"
+    imageUrl: "/879802f937b77f64470ddfd61c7ede21.webp"
   },
 ]
 
@@ -107,11 +107,12 @@ export default function AboutPage() {
 
       <div className="relative w-full max-h-[500px] overflow-hidden">
         <Image
-          src="/about-banner.jpg"
+          src="/about-banner.webp"
           alt="Jews fight"
           width={1920}
           height={1080}
           className="object-cover w-full h-full"
+          objectFit="cover"
           priority
         />
       </div>
@@ -123,19 +124,23 @@ export default function AboutPage() {
         <div className="flex flex-col lg:flex-row justify-between relative gap-8 lg:gap-16">
           <div className="relative w-full lg:w-[60%] aspect-[16/11] hidden lg:block">
             <Image
-              src="/8492adf31a79aeaf6bacb0a1b6174daf.png"
+              src="/8492adf31a79aeaf6bacb0a1b6174daf.webp"
               alt="Israeli flag waving in daylight"
               className="object-cover border"
+              objectFit="cover"
               fill
+              sizes="(min-width: 1024px) 60vw, 100vw"
               priority
             />
           </div>
           <div className="space-y-8 flex flex-col items-start lg:items-end w-full lg:w-[40%] lg:relative lg:top-[-118px]">
             <div className="relative w-full aspect-[2/1] lg:aspect-[16/17]">
               <Image
-                src="/7df5457cdfcf6e74ba3c34057c68eac8.png"
+                src="/7df5457cdfcf6e74ba3c34057c68eac8.webp"
                 alt="Rally with Israeli flags"
                 className="object-cover border"
+                objectFit="cover"
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 fill
               />
             </div>
@@ -173,7 +178,7 @@ export default function AboutPage() {
           <div className="relative w-full aspect-[2/1] lg:aspect-[16/17] overflow-hidden">
             <Image
               alt="Jewish students"
-              src="/4362ea3e0dce40ae4d9cdab400153186.jpg"
+              src="/4362ea3e0dce40ae4d9cdab400153186.webp"
               fill
               className="object-cover object-center scale-125"
             />
@@ -240,7 +245,7 @@ export default function AboutPage() {
             <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/fd2971d4352ba17cb23047d0f140e03f.jpeg"
+                src="/fd2971d4352ba17cb23047d0f140e03f.webp"
                 className="w-full h-full object-cover"
                 width={820}
                 height={820}
@@ -250,7 +255,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="py-24 sm:py-32">
+      <div className="py-24 sm:py-32 w-full">
         <Timeline />
       </div>
 
@@ -267,7 +272,7 @@ export default function AboutPage() {
             <div className="bg-primary w-full aspect-[3/4] max-h-[600px] max-w-[500px] mt-20 lg:mt-40 lg:ml-24" />
             <div className="z-10 mt-10 lg:mt-20 w-full max-w-[400px]">
               <Image
-                src="/131de7f55f1806eebfca97668a247826.jpeg"
+                src="/131de7f55f1806eebfca97668a247826.webp"
                 alt="Historical group photo"
                 width={400}
                 height={300}
@@ -288,10 +293,11 @@ export default function AboutPage() {
           <div className="space-y-6 flex flex-col items-center gap-8 lg:transform lg:translate-x-[5rem] lg:-translate-y-[5rem]">
             <div className="aspect-[5/3] w-full max-w-[900px]">
               <Image
-                src="/fb65dabcc10a7f4bcea9085829df2a62.jpeg"
+                src="/fb65dabcc10a7f4bcea9085829df2a62.webp"
                 alt="Portrait photo"
                 width={900}
                 height={540}
+                objectFit="cover"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -335,8 +341,9 @@ export default function AboutPage() {
             <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
-                src="/e8c7d01f50f9f635b49b17627fc1d245.jpeg"
+                src="/e8c7d01f50f9f635b49b17627fc1d245.webp"
                 className="w-full h-full object-cover"
+                objectFit="cover"
                 width={820}
                 height={820}
               />

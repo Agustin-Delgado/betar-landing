@@ -63,7 +63,7 @@ export default function Footer() {
   return (
     <div className="w-full h-full">
       <div className="bg-primary py-12 sm:py-24 md:py-40 relative z-0">
-        <img src="/footer-banner.png" alt="footer-banner" className="absolute inset-0 w-full h-full object-cover mix-blend-plus-lighter z-0" />
+        <img src="/footer-banner.webp" alt="footer-banner" className="absolute inset-0 w-full h-full object-cover mix-blend-plus-lighter z-0" />
         <div className="text-center flex flex-col gap-2 relative z-10 px-4">
           <span className="text-balance text-3xl sm:text-5xl md:text-8xl font-semibold tracking-tight text-accent">
             BETAR

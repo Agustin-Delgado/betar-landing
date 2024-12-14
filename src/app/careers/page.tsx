@@ -64,8 +64,9 @@ export default function CareersPage() {
               <div className="aspect-[3/2] bg-gray-100 overflow-hidden">
                 <Image
                   alt="Jewish students"
-                  src="/007ba4a9d60b7be54332c14703d52980.jpeg"
+                  src="/007ba4a9d60b7be54332c14703d52980.webp"
                   className="w-full h-full object-cover"
+                  priority
                   width={820}
                   height={547}
                 />

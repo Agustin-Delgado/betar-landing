@@ -18,19 +18,19 @@ const timelineData: TimelineItem[] = [
     year: '1923',
     title: 'Foundation of Betar',
     description: 'Betar was founded in Riga, Latvia, as a youth movement to foster leadership, strength, and pride. Core Values: Focus on self-defense, pioneering spirit, and commitment to community building.',
-    image: '/6168a07883eb7a4998f333689e0a61b9.jpeg'
+    image: '/6168a07883eb7a4998f333689e0a61b9.webp'
   },
   {
     year: '1948',
     title: 'Historical Milestone',
     description: 'A significant year marked by important developments and progress in the organization\'s mission and goals.',
-    image: '/7df5457cdfcf6e74ba3c34057c68eac8.png'
+    image: '/7df5457cdfcf6e74ba3c34057c68eac8.webp'
   },
   {
     year: '1950',
     title: 'New Era Begins',
     description: 'The organization enters a new phase of growth and development, expanding its reach and impact.',
-    image: '/8492adf31a79aeaf6bacb0a1b6174daf.png'
+    image: '/8492adf31a79aeaf6bacb0a1b6174daf.webp'
   }
 ]
 
