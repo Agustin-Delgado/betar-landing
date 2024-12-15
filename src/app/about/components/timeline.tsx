@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 interface TimelineItem {
   year: string
@@ -101,7 +101,7 @@ export default function Timeline() {
             transition={{ duration: 0.3 }}
             className="grid md:grid-cols-2 gap-8 md:gap-16 lg:gap-32"
           >
-            <div className="aspect-[2/1] lg:aspect-square bg-gray-100 overflow-hidden">
+            <div className="aspect-[1/1] lg:aspect-square bg-gray-100 overflow-hidden">
               <Image
                 src={timelineData[currentIndex].image}
                 alt={timelineData[currentIndex].title}

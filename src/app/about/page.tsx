@@ -1,17 +1,16 @@
 'use client'
 
-import Image from "next/image";
-import Header from "../components/header";
+import Image from "next/legacy/image";
+import Header from "../../components/header";
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Footer from "../../components/footer";
+import NewsletterForm from "../../components/newsletter-form";
 import CardCarousel from "./components/carousel";
 import Timeline from "./components/timeline";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Input } from "@/components/ui/input";
-import Footer from "../components/footer";
-import Link from "next/link";
-import NewsletterForm from "../components/newsletter-form";
 
 const carousel_one = [
   {
@@ -128,7 +127,7 @@ export default function AboutPage() {
               alt="Israeli flag waving in daylight"
               className="object-cover border"
               objectFit="cover"
-              fill
+              layout="fill"
               sizes="(min-width: 1024px) 60vw, 100vw"
               priority
             />
@@ -141,7 +140,7 @@ export default function AboutPage() {
                 className="object-cover border"
                 objectFit="cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                fill
+                layout="fill"
               />
             </div>
             <div className="space-y-6 font-medium">
@@ -179,7 +178,7 @@ export default function AboutPage() {
             <Image
               alt="Jewish students"
               src="/4362ea3e0dce40ae4d9cdab400153186.webp"
-              fill
+              layout="fill"
               className="object-cover object-center scale-125"
             />
           </div>
@@ -242,13 +241,14 @@ export default function AboutPage() {
                 Betar was founded in 1923 by Ze&apos;ev Jabotinsky, as a movement dedicated to strengthening Jewish identity and self-defense. Over nearly a century, Betar has grown into a global community, empowering generations to embrace their heritage with pride and courage. Our story is one of resilience, commitment, and unity, spanning from our earliest days in Europe to our present-day international reach.
               </p>
             </div>
-            <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
+            <div className="aspect-[1/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
               <Image
                 alt="Jewish students"
                 src="/fd2971d4352ba17cb23047d0f140e03f.webp"
                 className="w-full h-full object-cover"
-                width={820}
-                height={820}
+                objectFit="cover"
+                width={1000}
+                height={1100}
               />
             </div>
           </div>
@@ -270,13 +270,14 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-16 lg:gap-0">
           <div className="relative flex flex-col z-20 items-center">
             <div className="bg-primary w-full aspect-[3/4] max-h-[600px] max-w-[500px] mt-20 lg:mt-40 lg:ml-24" />
-            <div className="z-10 mt-10 lg:mt-20 w-full max-w-[400px]">
+            <div className="z-10 mt-10 lg:mt-20 w-full max-w-[600px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <Image
                 src="/131de7f55f1806eebfca97668a247826.webp"
                 alt="Historical group photo"
-                width={400}
-                height={300}
-                className="w-full object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                width={600}
+                height={400}
+                objectFit="cover"
+                className="w-full object-cover"
               />
             </div>
             <Button
@@ -338,14 +339,14 @@ export default function AboutPage() {
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
               </Button>
             </div>
-            <div className="aspect-[2/1] lg:aspect-[16/17] bg-gray-100 overflow-hidden">
+            <div className="aspect-[5/4] lg:aspect-[16/16] bg-gray-100 overflow-hidden relative">
               <Image
                 alt="Jewish students"
                 src="/e8c7d01f50f9f635b49b17627fc1d245.webp"
                 className="w-full h-full object-cover"
                 objectFit="cover"
-                width={820}
-                height={820}
+                width={1020}
+                height={1020}
               />
             </div>
           </div>

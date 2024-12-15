@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
-import Image from "next/image";
-import Header from "../components/header";
+import Image from "next/legacy/image";
+import Header from "../../components/header";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Footer from "../components/footer";
+import Footer from "../../components/footer";
 
 const careers = [
   {

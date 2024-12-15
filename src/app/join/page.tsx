@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Header from "../components/header";
+import Image from "next/legacy/image";
+import Header from "../../components/header";
 import JoinForm from "./components/join-form";
-import Footer from "../components/footer";
+import Footer from "../../components/footer";
 
 export default function JoinPage() {
   return (

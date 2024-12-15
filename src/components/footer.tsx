@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, ChevronRight, RotateCw } from 'lucide-react';
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -165,14 +165,14 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="text-accent">
+            <div className="text-accent flex flex-col items-center">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex justify-center">
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem className="w-[250px]">
+                      <FormItem>
                         <FormLabel className="text-sm sm:text-base">Stay in Touch</FormLabel>
                         <FormControl>
                           <div className="mt-2 mb-2 flex">

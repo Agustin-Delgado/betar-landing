@@ -1,7 +1,7 @@
-import Header from "@/app/components/header";
-import Image from "next/image";
+import Header from "@/components/header";
+import Image from "next/legacy/image";
 import CardCarousel from "../components/carousel";
-import Footer from "@/app/components/footer";
+import Footer from "@/components/footer";
 
 const carousel_two = [
   {
@@ -124,7 +124,7 @@ export default function IdeologyPage() {
       <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
-            <div className="aspect-square bg-gray-100 overflow-hidden">
+            <div className="aspect-square bg-gray-100 overflow-hidden order-2 lg:order-1">
               <Image
                 alt="Jewish students"
                 src="/6aa8e3dc7dc614eb8c2d4fa42127f97f.webp"
@@ -133,7 +133,7 @@ export default function IdeologyPage() {
                 height={820}
               />
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
                 The Legacy Continues
               </h2>
@@ -173,7 +173,7 @@ export default function IdeologyPage() {
       <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
-            <div className="aspect-square bg-gray-100 overflow-hidden">
+            <div className="aspect-square bg-gray-100 overflow-hidden order-2 lg:order-1">
               <Image
                 alt="Jewish students"
                 src="/2f17debf72fd27bef80ed4f37ebbaee9.webp"
@@ -182,13 +182,14 @@ export default function IdeologyPage() {
                 height={820}
               />
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
                 Betar Song
               </h2>
               <p className="mt-6 sm:mt-8 md:mt-12 lg:mt-16 text-base sm:text-lg md:text-xl font-medium leading-7">
                 Discover the spirit of Betar through our anthem. This song captures our passion, strength, and unwavering dedication to Israel and Jewish pride.
-
+                <br />
+                <br />
                 Shir Betar is a poem written by the Zionist leader Zeev Jabotinsky in Paris in 1932. The poem was adopted as the song of the Zionist youth movement Betar. Through the song, Jabotinsky made a call to all Jews to recover their self-esteem and to actively participate in the fight for the creation of Israel.
               </p>
             </div>

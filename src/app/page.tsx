@@ -3,11 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
-import Footer from './components/footer';
-import Header from "./components/header";
-import NewsletterForm from './components/newsletter-form';
+import Footer from '../components/footer';
+import Header from "../components/header";
+import NewsletterForm from '../components/newsletter-form';
 import CardCarousel from "./about/components/carousel";
 import NumberTicker from "@/components/ui/number-ticker";
 import { useEffect, useRef, useState } from "react";
@@ -124,7 +124,7 @@ export default function HomePage() {
       <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
-            <div>
+            <div className="order-2 lg:order-1">
               <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
                 Empowering Jewish Students
               </h2>
@@ -146,7 +146,7 @@ export default function HomePage() {
               src="/dims.webp"
               width={820}
               height={547}
-              className="w-full h-auto"
+              className="w-full h-auto order-1 lg:order-2"
             />
           </div>
         </div>
@@ -353,7 +353,7 @@ export default function HomePage() {
             <CarouselContent>
               {posts.map((post, index) => (
                 <CarouselItem
-                  className="md:basis-1/2 lg:basis-1/3 w-full sm:w-[400px] h-[300px] sm:h-[400px] overflow-hidden"
+                  className="md:basis-1/2 lg:basis-1/3 w-full sm:w-[400px] h-[300px] sm:h-[400px] overflow-hidden flex justify-center"
                   key={index}
                 >
                   <Image
