@@ -5,13 +5,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Form } from '@/components/ui/form'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Edit, PlusCircle, Star, Trash2 } from 'lucide-react'
+import { Edit, Pencil, PlusCircle, Star, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import NewsForm from './components/news-form'
 import { useNews } from "./context/news.context"
 import { format } from "date-fns"
+import { useRouter } from "next/navigation"
 
 const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
@@ -22,9 +23,12 @@ const newNewsFormSchema = z.object({
   article_url: z.string({ required_error: 'Article URL is required' }).min(1, { message: 'Article URL is required' }),
   is_hero: z.boolean(),
   id: z.number().optional(),
+  content: z.any().optional()
 })
 
 export default function AdminPanel() {
+  const router = useRouter()
+
   const {
     news,
     setAsHero,
@@ -64,13 +68,19 @@ export default function AdminPanel() {
 
   return (
     <Form {...form}>
-      <div className="container mx-auto p-4 mt-10">
-        <div className='flex justify-between'>
-          <h1 className="text-3xl font-semibold">News Admin Panel</h1>
+      <header className="h-16 border-b px-4 flex items-center justify-between">
+        <h1 className="text-xl font-semibold">News Admin Panel</h1>
+        <div className="flex gap-4">
+          <Button
+            variant="outline"
+          >
+            <Pencil className="h-4 w-4" />
+            Create News
+          </Button>
           <Dialog open={isDialogOpen} onOpenChange={onOpenChange}>
             <DialogTrigger asChild>
               <Button onClick={() => setIsEdit(false)}>
-                <PlusCircle className="mr-2 h-4 w-4" /> Add News
+                <PlusCircle className="h-4 w-4" /> Add News
               </Button>
             </DialogTrigger>
             <DialogContent className='max-w-fit'>
@@ -84,6 +94,8 @@ export default function AdminPanel() {
             </DialogContent>
           </Dialog>
         </div>
+      </header>
+      <div className="p-4 w-full max-w-7xl mx-auto">
         <Table className="mt-4">
           <TableHeader>
             <TableRow>
@@ -107,9 +119,13 @@ export default function AdminPanel() {
                       variant="outline"
                       size="icon"
                       onClick={() => {
-                        form.reset(news)
-                        setIsEdit(true)
-                        setIsDialogOpen(true)
+                        if (news.content && news.content) {
+                          router.push(`/admin/edit/${news.id}`)
+                        } else {
+                          form.reset(news)
+                          setIsEdit(true)
+                          setIsDialogOpen(true)
+                        }
                       }}
                     >
                       <Edit className="h-4 w-4" />

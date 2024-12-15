@@ -10,9 +10,10 @@ const newNewsFormSchema = z.object({
   date: z.string({ required_error: 'Date is required' }).min(1, { message: 'Date is required' }),
   newspaper: z.string({ required_error: 'Newspaper is required' }).min(1, { message: 'Newspaper is required' }),
   image_url: z.string({ required_error: 'Image URL is required' }).min(1, { message: 'Image URL is required' }),
-  article_url: z.string({ required_error: 'Article URL is required' }).min(1, { message: 'Article URL is required' }),
+  article_url: z.string({ required_error: 'Article URL is required' }).min(1, { message: 'Article URL is required' }).optional(),
   is_hero: z.boolean(),
   id: z.number().optional(),
+  content: z.any().optional()
 })
 
 export const newsFormSchema = z.object({
@@ -24,6 +25,7 @@ export const newsFormSchema = z.object({
   image_url: z.string(),
   article_url: z.string(),
   is_hero: z.boolean(),
+  content: z.any().optional()
 });
 
 const NewsContext = createContext({
@@ -127,6 +129,10 @@ export const NewsProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const { data, error } = await supabase.from("news").update(news).eq("id", news.id).select();
       if (error) throw error;
+
+      if (news.is_hero) {
+        await setAsHero(data[0].id);
+      }
 
       setNews((prev) => {
         const updatedNews = prev.map((news) => {

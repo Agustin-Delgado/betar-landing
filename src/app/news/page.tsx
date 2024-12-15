@@ -114,7 +114,6 @@ export default function NewsPage() {
             </h1>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-8">
-            {/* Hero Section */}
             <div className="p-6 sm:p-8 md:p-12 flex flex-col bg-secondary">
               {loading ? (
                 <div className="space-y-4 flex flex-col gap-4">
