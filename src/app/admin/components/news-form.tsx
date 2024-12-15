@@ -18,11 +18,21 @@ import { format } from "date-fns"
 import { CalendarIcon, RotateCw } from "lucide-react"
 import { useFormContext } from "react-hook-form"
 import { z } from "zod"
-import { newNewsFormSchema } from "../page"
 import { Switch } from "@/components/ui/switch"
 import { newsFormSchema, useNews } from "../context/news.context"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
+
+const newNewsFormSchema = z.object({
+  title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
+  description: z.string({ required_error: 'Description is required' }).min(1, { message: 'Description is required' }),
+  date: z.string({ required_error: 'Date is required' }).min(1, { message: 'Date is required' }),
+  newspaper: z.string({ required_error: 'Newspaper is required' }).min(1, { message: 'Newspaper is required' }),
+  image_url: z.string({ required_error: 'Image URL is required' }).min(1, { message: 'Image URL is required' }),
+  article_url: z.string({ required_error: 'Article URL is required' }).min(1, { message: 'Article URL is required' }),
+  is_hero: z.boolean(),
+  id: z.number().optional(),
+})
 
 export default function NewsForm({ isEdit, setDialogOpen }: { isEdit: boolean, setDialogOpen: (open: boolean) => void }) {
   const { toast } = useToast()

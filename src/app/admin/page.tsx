@@ -13,7 +13,7 @@ import NewsForm from './components/news-form'
 import { useNews } from "./context/news.context"
 import { format } from "date-fns"
 
-export const newNewsFormSchema = z.object({
+const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
   description: z.string({ required_error: 'Description is required' }).min(1, { message: 'Description is required' }),
   date: z.string({ required_error: 'Date is required' }).min(1, { message: 'Date is required' }),
