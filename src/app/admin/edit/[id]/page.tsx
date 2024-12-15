@@ -2,22 +2,21 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Form } from "@/components/ui/form";
+import { createClient } from "@/lib/supabase/client";
 import { Block } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
-import { DragHandleButton, SideMenu, SideMenuController, useCreateBlockNote } from "@blocknote/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form } from "@/components/ui/form";
-import { BlockNoteView } from "@blocknote/mantine";
-import { useParams } from "next/navigation";
-import { RemoveBlockButton } from "../../new/components/remove-block-button";
-import { createClient } from "@/lib/supabase/client";
 import EditNewsForm from "./components/edit-news-form";
 
+export const Editor = dynamic(() => import("../../components/dynamic-editor"), { ssr: false });
 
 const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
@@ -50,26 +49,6 @@ export default function EditNewsPage() {
       content: blocks,
     },
   })
-
-  const editor = useCreateBlockNote({
-    initialContent: blocks.length ? blocks : undefined,
-    uploadFile: async (file) => {
-      const formData = new FormData();
-      formData.append("file", file);
-
-      const response = await fetch("/api/upload-image", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upload file");
-      }
-
-      const { url } = await response.json();
-      return url;
-    },
-  });
 
   const onOpenChange = (open: boolean) => {
     setIsDialogOpen(open);
@@ -112,11 +91,13 @@ export default function EditNewsPage() {
         console.error("Error fetching news:", error);
         return;
       }
-      editor.replaceBlocks(editor.document, data.content);
+
       setBlocks(data.content);
       setNews(data);
     })();
   }, []);
+
+  console.log(blocks)
 
   return (
     <Form {...form}>
@@ -138,23 +119,11 @@ export default function EditNewsPage() {
       </header>
       <div className="p-4 w-full max-w-7xl mx-auto">
         <div className="p-4 border rounded-md">
-          <BlockNoteView
-            theme="light"
-            editor={editor}
-            sideMenu={false}
-            onChange={() => {
-              setBlocks(editor.document);
-            }}
-          >
-            <SideMenuController
-              sideMenu={(props) => (
-                <SideMenu {...props}>
-                  <RemoveBlockButton {...props} />
-                  <DragHandleButton {...props} />
-                </SideMenu>
-              )}
-            />
-          </BlockNoteView>
+          <Editor
+            key={blocks.length}
+            blocks={blocks}
+            setBlocks={setBlocks}
+          />
         </div>
       </div>
     </Form>

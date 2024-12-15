@@ -13,6 +13,7 @@ import NewsForm from './components/news-form'
 import { useNews } from "./context/news.context"
 import { format } from "date-fns"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
@@ -73,9 +74,12 @@ export default function AdminPanel() {
         <div className="flex gap-4">
           <Button
             variant="outline"
+            asChild
           >
-            <Pencil className="h-4 w-4" />
-            Create News
+            <Link href="/admin/new">
+              <Pencil className="h-4 w-4" />
+              Create News
+            </Link>
           </Button>
           <Dialog open={isDialogOpen} onOpenChange={onOpenChange}>
             <DialogTrigger asChild>

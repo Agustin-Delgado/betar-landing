@@ -2,19 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Form } from "@/components/ui/form";
 import { Block } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
-import { DragHandleButton, SideMenu, SideMenuController, useCreateBlockNote } from "@blocknote/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save } from "lucide-react";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { RemoveBlockButton } from "./components/remove-block-button";
-import { Form } from "@/components/ui/form";
 import SaveNewsForm from "./components/save-news-form";
-import { BlockNoteView } from "@blocknote/mantine";
+
+export const Editor = dynamic(() => import("../components/dynamic-editor"), { ssr: false });
 
 const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
@@ -29,65 +29,7 @@ const newNewsFormSchema = z.object({
 
 export default function NewNewsPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [blocks, setBlocks] = useState<Block[]>([
-    {
-      "id": "6874951d-f928-4635-88d9-4d2ab8dde44e",
-      "type": "heading",
-      "props": {
-        "textColor": "default",
-        "backgroundColor": "default",
-        "textAlignment": "left",
-        "level": 1
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "test1",
-          "styles": {}
-        }
-      ],
-      "children": []
-    },
-    {
-      "id": "0bc3b050-df5e-4e31-b4aa-abdad60bafdc",
-      "type": "paragraph",
-      "props": {
-        "textColor": "default",
-        "backgroundColor": "default",
-        "textAlignment": "left"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "test test ",
-          "styles": {}
-        },
-        {
-          "type": "link",
-          "href": "https://www.jpost.com/israel-news/article-833463",
-          "content": [
-            {
-              "type": "text",
-              "text": "testlink",
-              "styles": {}
-            }
-          ]
-        }
-      ],
-      "children": []
-    },
-    {
-      "id": "438618bf-e5d3-4f58-b299-ec7a41fa73c4",
-      "type": "paragraph",
-      "props": {
-        "textColor": "default",
-        "backgroundColor": "default",
-        "textAlignment": "left"
-      },
-      "content": [],
-      "children": []
-    }
-  ]);
+  const [blocks, setBlocks] = useState<Block[]>([]);
 
   const form = useForm<z.infer<typeof newNewsFormSchema>>({
     resolver: zodResolver(newNewsFormSchema),
@@ -102,26 +44,6 @@ export default function NewNewsPage() {
       content: blocks,
     },
   })
-
-  const editor = useCreateBlockNote({
-    initialContent: blocks,
-    uploadFile: async (file) => {
-      const formData = new FormData();
-      formData.append("file", file);
-
-      const response = await fetch("/api/upload-image", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upload file");
-      }
-
-      const { url } = await response.json();
-      return url;
-    },
-  });
 
   const onOpenChange = (open: boolean) => {
     setIsDialogOpen(open);
@@ -156,7 +78,6 @@ export default function NewNewsPage() {
     }
   };
 
-
   return (
     <Form {...form}>
       <header className="h-16 border-b px-4 flex items-center justify-between">
@@ -177,23 +98,7 @@ export default function NewNewsPage() {
       </header>
       <div className="p-4 w-full max-w-7xl mx-auto">
         <div className="p-4 border rounded-md">
-          <BlockNoteView
-            theme="light"
-            editor={editor}
-            sideMenu={false}
-            onChange={() => {
-              setBlocks(editor.document);
-            }}
-          >
-            <SideMenuController
-              sideMenu={(props) => (
-                <SideMenu {...props}>
-                  <RemoveBlockButton {...props} />
-                  <DragHandleButton {...props} />
-                </SideMenu>
-              )}
-            />
-          </BlockNoteView>
+          <Editor blocks={blocks} setBlocks={setBlocks} />
         </div>
       </div>
     </Form>
