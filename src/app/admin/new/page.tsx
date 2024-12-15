@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import SaveNewsForm from "./components/save-news-form";
 
-export const Editor = dynamic(() => import("../components/dynamic-editor"), { ssr: false });
+const Editor = dynamic(() => import("../components/dynamic-editor"), { ssr: false });
 
 const newNewsFormSchema = z.object({
   title: z.string({ required_error: 'Title is required' }).min(1, { message: 'Title is required' }),
