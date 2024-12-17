@@ -74,11 +74,12 @@ export default function Footer() {
         </div>
         <div className="mt-8 sm:mt-12 flex items-center justify-center relative z-10">
           <Button
-            className="bg-accent text-foreground font-bold h-10 sm:h-12 md:h-16 px-4 sm:px-6 md:px-10 py-0 text-sm sm:text-lg md:text-xl hover:bg-transparent hover:text-accent group hover:border"
+            className="border border-foreground hover:border-primary bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
             onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
+
           >
             Donate
-            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
           </Button>
         </div>
       </div>

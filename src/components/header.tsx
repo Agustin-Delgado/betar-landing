@@ -9,9 +9,8 @@ import { useState, useEffect } from "react";
 const nav_items = [
   { label: "About", href: "/about" },
   { label: "Ideology", href: "/about/ideology" },
-  { label: "Careers", href: "/careers" },
   { label: "Join", href: "/join" },
-  { label: "News", href: "/news" },
+  { label: "In The News", href: "/news" },
 ];
 
 export default function Header({
@@ -44,7 +43,7 @@ export default function Header({
       mobileMenuOpen && "bg-background border-b text-foreground",
       className
     )}>
-      <div className="max-w-7xl flex items-center w-full justify-between mx-auto">
+      <div className={cn("max-w-7xl flex items-center w-full justify-between mx-auto")}>
         <Link href="/" className="flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="136" height="36" viewBox="0 0 136 36" fill="none">
             <path fillRule="evenodd" clipRule="evenodd" d="M62.7953 26.9595C63.1323 26.9595 63.4283 27.0665 63.6813 27.2805C63.9283 27.4825 64.0523 27.7355 64.0523 28.0405C64.0583 28.5535 64.0743 29.8815 64.1013 32.0245C64.0943 33.6485 64.0783 34.9735 64.0523 35.9985H61.0813V29.4335C61.0873 28.9405 60.8703 28.6935 60.4283 28.6935C59.9223 28.6935 59.1423 28.7065 58.0903 28.7325C57.2203 28.7325 56.4413 28.7195 55.7523 28.6935L55.5383 26.9595H62.7953Z" fill="currentColor" />
@@ -87,7 +86,7 @@ export default function Header({
           {nav_items.map((item, index) => (
             <Button
               variant="link"
-              className="text-inherit text-sm lg:text-base"
+              className="text-inherit !text-sm !font-bold"
               key={index}
               asChild
             >
@@ -115,7 +114,7 @@ export default function Header({
               {nav_items.map((item, index) => (
                 <Button
                   variant="ghost"
-                  className="justify-start text-inherit py-2"
+                  className="justify-start text-inherit py-2 !text-sm !font-bold"
                   key={index}
                   asChild
                 >

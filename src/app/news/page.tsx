@@ -10,8 +10,11 @@ import Footer from "../../components/footer";
 import { useNews } from "../admin/context/news.context";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useRouter } from "next/navigation";
 
 export default function NewsPage() {
+  const router = useRouter()
+
   const { news, loading } = useNews()
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -211,7 +214,13 @@ export default function NewsPage() {
                   <Button
                     variant="link"
                     className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight p-0 h-auto text-wrap text-left text-foreground"
-                    onClick={() => window.open(item.article_url, "_blank")}
+                    onClick={() => {
+                      if (item.content && item.content.length) {
+                        router.push(`/news/${item.id}`)
+                      } else {
+                        window.open(item.article_url, "_blank")
+                      }
+                    }}
                   >
                     {item.title}
                   </Button>

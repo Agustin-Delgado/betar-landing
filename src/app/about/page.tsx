@@ -259,69 +259,6 @@ export default function AboutPage() {
         <Timeline />
       </div>
 
-      <div className="max-w-7xl mx-auto p-4 sm:p-8 grid gap-8 flex-1 flex-grow py-24 sm:py-32">
-        <div className="text-primary flex flex-col gap-4">
-          <blockquote className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-            &quot;There is no mightier weapon than indifference, you will never conquer it.&quot;
-          </blockquote>
-          <cite className="text-lg sm:text-xl">— Ze&apos;ev Jabotinsky</cite>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-16 lg:gap-0">
-          <div className="relative flex flex-col z-20 items-center">
-            <div className="bg-primary w-full aspect-[3/4] max-h-[600px] max-w-[500px] mt-20 lg:mt-40 lg:ml-24" />
-            <div className="z-10 mt-10 lg:mt-20 w-full max-w-[600px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <Image
-                src="/131de7f55f1806eebfca97668a247826.webp"
-                alt="Historical group photo"
-                width={600}
-                height={400}
-                objectFit="cover"
-                className="w-full object-cover"
-              />
-            </div>
-            <Button
-              className="mt-8 border-black bg-white border text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
-              asChild
-            >
-              <Link href="/about/ideology">
-                Learn More
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="space-y-6 flex flex-col items-center gap-8 lg:transform lg:translate-x-[5rem] lg:-translate-y-[5rem]">
-            <div className="aspect-[5/3] w-full max-w-[900px]">
-              <Image
-                src="/fb65dabcc10a7f4bcea9085829df2a62.webp"
-                alt="Portrait photo"
-                width={900}
-                height={540}
-                objectFit="cover"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="space-y-4 max-w-[500px] flex flex-col gap-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">Ideology</h2>
-              <p className="leading-relaxed font-medium text-base sm:text-lg md:text-xl">
-                Betar&apos;s ideology is rooted in core principles that guide every action and inspire our members:
-                <br />
-                <strong>Ahavat Yisrael{" "}</strong> Love of Israel
-                <br />
-                <strong>Hadar{" "}</strong> Dignity & Pride
-                <br />
-                <strong>Barzel{" "}</strong> Strength & Resilience
-                <br />
-                <strong>Achdut{" "}</strong> Unity & Solidarity
-                <br />
-                <strong>Bitachon{" "}</strong> Faith & Security
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="overflow-hidden bg-white py-24 sm:py-32 w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">

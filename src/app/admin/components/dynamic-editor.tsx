@@ -7,7 +7,7 @@ import { DragHandleButton, SideMenu, SideMenuController, useCreateBlockNote } fr
 import { Dispatch, SetStateAction } from "react";
 import { RemoveBlockButton } from "../new/components/remove-block-button";
 
-export default function Editor({ blocks, setBlocks }: { blocks: Block[], setBlocks: Dispatch<SetStateAction<Block[]>> }) {
+export default function Editor({ blocks, setBlocks, editable = true }: { blocks: Block[], setBlocks: Dispatch<SetStateAction<Block[]>>, editable?: boolean }) {
   const editor = useCreateBlockNote({
     initialContent: blocks.length ? blocks : undefined,
     uploadFile: async (file) => {
@@ -30,6 +30,7 @@ export default function Editor({ blocks, setBlocks }: { blocks: Block[], setBloc
 
   return <BlockNoteView
     theme="light"
+    editable={editable}
     editor={editor}
     sideMenu={false}
     onChange={() => {

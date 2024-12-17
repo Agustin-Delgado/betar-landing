@@ -30,6 +30,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -60,13 +61,14 @@
 
 @layer base {
   :root {
-    --font-geist-sans: 'ui-sans-serif', system-ui, sans-serif;
-    --font-geist-mono: 'ui-monospace', 'SFMono-Regular', monospace;
+    --font-inter-sans: 'Inter', sans-serif;
+    --font-inter-mono: 'Inter', monospace;
   }
 
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

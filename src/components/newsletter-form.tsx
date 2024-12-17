@@ -182,14 +182,15 @@ export default function NewsletterForm() {
                   )}
                 />
               </dl>
+
               <Button
-                className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28 bg-accent border text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:bg-primary hover:text-accent group"
+                className="border border-foreground hover:border-primary mt-8 sm:mt-12 md:mt-16 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
               >
                 Submit
                 {isSubmitting ?
-                  <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary animate-spin group-hover:text-accent" />
+                  <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary animate-spin" />
                   :
-                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
                 }
               </Button>
             </form>

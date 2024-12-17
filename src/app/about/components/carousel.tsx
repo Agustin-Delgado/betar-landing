@@ -6,7 +6,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { HoverCard } from './hover-card'
 import { Button } from '@/components/ui/button'
 
-export default function CardCarousel({ carouselData }: { carouselData: { id: number, title: string, description: string, imageUrl: string, textColor?: string, subTitle?: string }[] }) {
+export default function CardCarousel({ carouselData, CustomHoverCard }: { carouselData: { id: number, title: string, description: string, imageUrl: string, textColor?: string, subTitle?: string }[], CustomHoverCard?: React.FC<any> }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [cardsPerView, setCardsPerView] = useState(3)
   const constraintsRef = useRef(null)
@@ -93,9 +93,15 @@ export default function CardCarousel({ carouselData }: { carouselData: { id: num
                   'sm:w-1/2 lg:w-1/3'
                 }`}
             >
-              <HoverCard
-                {...card}
-              />
+              {
+                CustomHoverCard ?
+                  <CustomHoverCard
+                    {...card}
+                  /> :
+                  <HoverCard
+                    {...card}
+                  />
+              }
             </motion.div>
           ))}
         </motion.div>
