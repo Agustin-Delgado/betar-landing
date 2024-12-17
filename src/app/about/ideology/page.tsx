@@ -233,7 +233,6 @@ export default function IdeologyPage() {
 
       <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Legacy Continues Section */}
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center mb-16">
             <div className="aspect-square bg-gray-100 overflow-hidden order-2 lg:order-1">
               <Image
@@ -257,7 +256,6 @@ export default function IdeologyPage() {
             </div>
           </div>
 
-          {/* Reclaiming the Narrative Section */}
           <div className="mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Reclaiming the Narrative</h2>
             <p className="text-base sm:text-lg mb-8">
@@ -283,28 +281,26 @@ export default function IdeologyPage() {
             </ul>
           </div>
 
-          {/* Inspiring a New Generation Section */}
           <div className="mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Inspiring a New Generation</h2>
             <p className="text-base sm:text-lg mb-8">
-              Betar USA is reigniting Jabotinsky's vision by developing leaders who embrace their identity,
+              Betar USA is reigniting Jabotinsky&apos;s vision by developing leaders who embrace their identity,
               act with purpose, and defend the Jewish community. Our members are educated, supported, and
               empowered to fight back on all fronts—whether in the public square, on social media, or within
               their local communities.
             </p>
             <p className="text-base sm:text-lg">
-              Guided by Jabotinsky's timeless philosophy, Betar continues to shine as a beacon of honor and
+              Guided by Jabotinsky&apos;s timeless philosophy, Betar continues to shine as a beacon of honor and
               resilience. We are more than a movement; we are a call to action, ensuring that the legacy of our
               heroes inspires and protects future generations.
             </p>
           </div>
 
-          {/* Closing Section */}
           <div className="text-center">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">As our motto declares: #JewsFightBack</h3>
             <p className="text-base sm:text-lg">
               Betar remains steadfast in its mission to lead with courage, protect with strength, and inspire
-              with dignity, carrying the Jewish people's proud legacy into the future.
+              with dignity, carrying the Jewish people&apos;s proud legacy into the future.
             </p>
           </div>
         </div>

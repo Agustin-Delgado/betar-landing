@@ -130,8 +130,8 @@ export default function HomePage() {
 
       <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
-            <div className="order-2 lg:order-1">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-20 items-center lg:mx-0 lg:max-w-none">
+            <div className="lg:order-1 order-2">
               <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
                 Empowering Jewish Students
               </h2>
@@ -148,13 +148,17 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            <Image
-              alt="Jewish students"
-              src="/dims.webp"
-              width={820}
-              height={547}
-              className="w-full h-auto order-1 lg:order-2"
-            />
+
+            <div className="lg:order-2 order-1">
+              <Image
+                alt="Jewish students"
+                src="/dims.webp"
+                width={820}
+                height={547}
+                className="w-full h-auto"
+              />
+            </div>
+
           </div>
         </div>
       </div>
