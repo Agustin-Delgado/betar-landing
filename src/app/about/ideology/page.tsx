@@ -133,7 +133,7 @@ export default function IdeologyPage() {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <section className="py-12 sm:py-16 md:py-24 lg:py-32 w-full max-w-full">
+                    <section className="w-full max-w-full">
                       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <h2 className="mt-2 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 sm:mb-10">
                           Core Principles of Betar
@@ -150,7 +150,7 @@ export default function IdeologyPage() {
       </section>
 
 
-      <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
+      <section className="overflow-hidden bg-white pt-12 sm:pt-16 md:pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24 items-center">
             <div className="relative aspect-square bg-primary z-20 order-2 lg:order-1 lg:mr-12 xl:mr-0">
@@ -185,7 +185,7 @@ export default function IdeologyPage() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
+      <section className="overflow-hidden bg-white pt-12 sm:pt-16 md:pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div>
@@ -306,7 +306,7 @@ export default function IdeologyPage() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-24 lg:py-32">
+      <section className="overflow-hidden bg-white pb-12 sm:pb-16 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div className="aspect-square bg-gray-100 overflow-hidden order-2 lg:order-1">

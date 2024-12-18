@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "@fontsource/inter"
 import type { Metadata } from "next";
 import "./globals.css";
+import { NewsProvider } from "./admin/context/news.context";
 
 export const metadata: Metadata = {
   title: "Betar",
@@ -18,8 +19,10 @@ export default function RootLayout({
       <body
         className={`font-sans`}
       >
-        {children}
-        <Toaster />
+        <NewsProvider>
+          {children}
+          <Toaster />
+        </NewsProvider>
       </body>
     </html>
   );

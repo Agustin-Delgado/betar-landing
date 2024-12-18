@@ -23,6 +23,11 @@ export default function NewsPage() {
   const totalPages = Math.ceil(news.length / itemsPerPage)
   const heroNews = news.find((item) => item.is_hero)
 
+  const currentNews = news.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   const goToPage = (page: number) => {
     setCurrentPage(page)
   }
@@ -109,7 +114,7 @@ export default function NewsPage() {
     <div className="flex flex-col items-center overflow-x-hidden">
       <Header className="text-foreground w-full" />
 
-      <div className="overflow-hidden bg-white py-24 w-full">
+      <div className="overflow-hidden bg-white py-24 md:py-32 lg:py-36 w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-8 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold tracking-tighter">
@@ -170,7 +175,13 @@ export default function NewsPage() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={() => window.open(heroNews?.article_url, "_blank")}
+                  onClick={() => {
+                    if (heroNews?.content && heroNews?.content.length) {
+                      router.push(`/news/${heroNews?.id}`)
+                    } else {
+                      window.open(heroNews?.article_url, "_blank")
+                    }
+                  }}
                   className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 bg-primary border text-accent border-l-0 hover:text-primary absolute bottom-px left-px border-none"
                 >
                   <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6" />
@@ -200,7 +211,7 @@ export default function NewsPage() {
                 </div>
               </div>
             ))
-            : news.map((item) => (
+            : currentNews.map((item) => (
               <article key={item.id} className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start border-b pb-6">
                 <Image
                   src={item.image_url}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const nav_items = [
@@ -18,6 +19,8 @@ export default function Header({
 }: {
   className?: string
 }) {
+  const pathname = usePathname();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,13 +40,20 @@ export default function Header({
   }, []);
 
   return (
-    <header className={cn(
-      "h-16 sm:h-20 md:h-[76px] mx-auto w-full flex items-center justify-between fixed inset-x-0 top-0 z-50 text-accent px-4 sm:px-6 lg:px-8 transition-colors",
-      isScrolled ? "bg-background border-b text-foreground" : "bg-transparent",
-      mobileMenuOpen && "bg-background border-b text-foreground",
-      className
-    )}>
-      <div className={cn("max-w-7xl flex items-center w-full justify-between mx-auto")}>
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 h-16 sm:h-20 md:h-[76px] transition-colors',
+        isScrolled ? 'bg-background w-full border-b' : 'bg-transparent text-background',
+        mobileMenuOpen && 'text-foreground bg-background',
+        className
+      )}
+    >
+      <div
+        className={cn(
+          'h-full mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 transition-colors max-w-7xl',
+          !isScrolled && "border-b",
+        )}
+      >
         <Link href="/" className="flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="136" height="36" viewBox="0 0 136 36" fill="none">
             <path fillRule="evenodd" clipRule="evenodd" d="M62.7953 26.9595C63.1323 26.9595 63.4283 27.0665 63.6813 27.2805C63.9283 27.4825 64.0523 27.7355 64.0523 28.0405C64.0583 28.5535 64.0743 29.8815 64.1013 32.0245C64.0943 33.6485 64.0783 34.9735 64.0523 35.9985H61.0813V29.4335C61.0873 28.9405 60.8703 28.6935 60.4283 28.6935C59.9223 28.6935 59.1423 28.7065 58.0903 28.7325C57.2203 28.7325 56.4413 28.7195 55.7523 28.6935L55.5383 26.9595H62.7953Z" fill="currentColor" />
@@ -82,15 +92,20 @@ export default function Header({
             <path fillRule="evenodd" clipRule="evenodd" d="M124.867 7.7191V12.2011H127.893C129.854 12.2011 130.694 11.5011 130.694 9.9321C130.694 8.3631 129.91 7.7191 127.893 7.7191H124.867ZM127.417 15.3391H124.867V21.1381H120.805V4.3291H128.174C132.487 4.3291 134.701 6.1501 134.701 9.7921C134.701 12.3701 133.496 14.0501 131.367 14.8351L135.681 20.8301V21.1381H130.974L127.417 15.3391Z" fill="currentColor" />
           </svg>
         </Link>
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden md:flex gap-12 h-full items-center">
           {nav_items.map((item, index) => (
             <Button
               variant="link"
-              className="text-inherit !text-sm !font-bold"
+              className={cn(
+                "text-inherit !text-sm !font-bold h-[inherit] relative hover:no-underline px-0"
+              )}
               key={index}
               asChild
             >
-              <Link href={item.href}>{item.label}</Link>
+              <Link href={item.href} className="relative group">
+                {item.label}
+                {pathname === item.href && <span className="absolute bottom-[-1px] left-0 w-full h-[3px] bg-primary" />}
+              </Link>
             </Button>
           ))}
         </nav>

@@ -116,8 +116,8 @@ export default function AboutPage() {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-8 py-24 sm:py-32 max-w-7xl">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-bold mb-6 tracking-tight">
+      <div className="container mx-auto px-4 sm:px-8 pt-24 sm:pt-32 max-w-7xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-bold mb-6 tracking-tight md:mb-20">
           Our Mission
         </h2>
         <div className="flex flex-col lg:flex-row justify-between relative gap-8 lg:gap-16">
@@ -157,7 +157,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-primary lg:bg-background py-24 sm:py-32 w-full">
+      <div className="overflow-hidden bg-primary lg:bg-background pt-24 sm:pt-32 w-full">
         <div className="mx-auto">
           <div className='relative'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 614" fill="none" className="w-full h-auto invisible lg:visible">
@@ -193,7 +193,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="py-24 sm:py-32 px-4">
+      <div className="px-4">
         <CardCarousel carouselData={carousel_one} />
       </div>
 
@@ -209,20 +209,20 @@ export default function AboutPage() {
               </h2>
               <div className='flex gap-4'>
                 <Button
-                  className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  className="border border-foreground hover:border-primary mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
                   asChild
                 >
                   <Link href="/join">
                     Join Us
-                    <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                    <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
                   </Link>
                 </Button>
                 <Button
-                  className="mt-8 sm:mt-12 bg-accent text-foreground font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 text-lg sm:text-xl hover:bg-primary hover:text-accent group hover:border"
+                  className="border border-foreground hover:border-primary mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
                   onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
                 >
                   Donate
-                  <ArrowRight className="!w-6 !h-6 sm:w-6 sm:h-6 ml-2 text-primary transition-transform group-hover:translate-x-2 group-hover:text-accent" />
+                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
                 </Button>
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32 w-full">
+      <div className="overflow-hidden bg-white w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
             <div>
@@ -255,11 +255,11 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="py-24 sm:py-32 w-full">
+      <div className="pt-24 sm:pt-32 w-full">
         <Timeline />
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32 w-full">
+      <div className="overflow-hidden bg-white w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
             <div>
@@ -290,7 +290,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden w-full px-4 sm:px-8 py-24 sm:py-32">
+      <div className="overflow-hidden w-full px-4 sm:px-8 pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl text-center">
           <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
             Reading Materials
@@ -322,9 +322,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="py-24 sm:py-32">
-        <NewsletterForm />
-      </div>
+      <NewsletterForm />
 
       <Footer />
     </div>

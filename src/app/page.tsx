@@ -12,6 +12,8 @@ import CardCarousel from "./about/components/carousel";
 import NumberTicker from "@/components/ui/number-ticker";
 import { useEffect, useRef, useState } from "react";
 import { motion } from 'framer-motion'
+import { useNews } from "./admin/context/news.context";
+import { format } from "date-fns";
 
 const stats = [
   { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: 500 },
@@ -63,8 +65,12 @@ const carousel = [
 ]
 
 export default function HomePage() {
+  const { news } = useNews()
+
   const statsRef = useRef(null);
   const [statsVisible, setStatsVisible] = useState(false);
+
+  const heroNews = news.filter((n) => n.is_hero)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -128,7 +134,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
+      <div className="overflow-hidden bg-white px-4 sm:px-8 pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-20 items-center lg:mx-0 lg:max-w-none">
             <div className="lg:order-1 order-2">
@@ -226,7 +232,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
+      <div className="overflow-hidden bg-white px-4 sm:px-8 pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 md:mb-10 mx-auto">
             Our Guiding Compass
@@ -282,13 +288,15 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-background px-4 sm:px-8 py-24 sm:py-32">
+      <div className="overflow-hidden bg-background px-4 sm:px-8 pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
             <div>
-              <span className='text-base sm:text-lg md:text-xl font-medium'>04.19.23  l  Newspaper</span>
+              <span className='text-base sm:text-lg md:text-xl font-medium'>
+                {heroNews[0]?.date && format(new Date(heroNews[0]?.date), 'MMMM dd, yyyy')} | {heroNews[0]?.newspaper}
+              </span>
               <h2 className="text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold max-w-5xl mt-2 sm:mt-4">
-                Betar warns Jews regarding New York rising Antisemitism
+                {heroNews[0]?.title}
               </h2>
               <Button
                 className="border border-foreground hover:border-primary mt-4 sm:mt-6 md:mt-8 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
@@ -300,9 +308,9 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            <Image
+            <img
               alt="Jewish students"
-              src="/newspaper.webp"
+              src={heroNews[0]?.image_url}
               width={820}
               height={547}
               className="w-full h-auto"

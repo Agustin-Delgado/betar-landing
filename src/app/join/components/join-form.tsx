@@ -454,7 +454,7 @@ export default function JoinForm() {
                           >
                             <FormControl>
                               <Checkbox
-                                className="mt-1 shadow-none"
+                                className="mt-1 shadow-none rounded-none"
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
                                   return checked
@@ -627,13 +627,13 @@ export default function JoinForm() {
           />
         </div>
         <Button
-          className="bg-primary text-white font-bold h-12 sm:h-16 px-6 sm:px-10 py-0 border text-base sm:text-lg md:text-xl hover:bg-accent hover:text-foreground group hover:border-primary"
+          className="border border-foreground hover:border-primary mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
         >
           Submit
           {isSubmitting ?
-            <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-accent animate-spin group-hover:text-primary" />
+            <RotateCw className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
             :
-            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 text-accent transition-transform group-hover:translate-x-2 group-hover:text-primary" />
+            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
           }
         </Button>
       </form>
