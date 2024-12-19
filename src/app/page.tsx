@@ -2,18 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import { ArrowRight } from 'lucide-react';
+import NumberTicker from "@/components/ui/number-ticker";
+import { format } from "date-fns";
+import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import Image from "next/legacy/image";
 import Link from 'next/link';
+import { useEffect, useRef, useState } from "react";
 import Footer from '../components/footer';
 import Header from "../components/header";
 import NewsletterForm from '../components/newsletter-form';
 import CardCarousel from "./about/components/carousel";
-import NumberTicker from "@/components/ui/number-ticker";
-import { useEffect, useRef, useState } from "react";
-import { motion } from 'framer-motion'
 import { useNews } from "./admin/context/news.context";
-import { format } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
 
 const stats = [
   { id: 1, name: 'Surge in Antisemitic incidents in the U.S, after October 7, 2023', value: 500 },
@@ -68,7 +68,9 @@ export default function HomePage() {
   const { news } = useNews()
 
   const statsRef = useRef(null);
+
   const [statsVisible, setStatsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const heroNews = news.filter((n) => n.is_hero)
 
@@ -97,10 +99,11 @@ export default function HomePage() {
 
   return (
     <div className="overflow-x-hidden">
+      <Header />
+
       <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.webp')] flex flex-col">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
         <div className="relative z-10 flex flex-col h-full">
-          <Header />
           <div className="flex-grow flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-accent font-bold max-w-5xl">
               WE ARE BETAR
@@ -135,27 +138,84 @@ export default function HomePage() {
       </div>
 
       <div className="overflow-hidden bg-white px-4 sm:px-8 pt-24 sm:pt-32">
-        <div className="mx-auto max-w-7xl">
+        <motion.div
+          className="mx-auto max-w-7xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-20 items-center lg:mx-0 lg:max-w-none">
-            <div className="lg:order-1 order-2">
+            <motion.div
+              className="lg:order-1 order-2"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.2 }}
+            >
               <h2 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl">
-                Empowering Jewish Students
+                Empowering Jewish Students with Betar USA
               </h2>
               <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl font-medium leading-7">
-                Betar USA is a Zionist youth movement dedicated to empowering Jewish students to defend and embrace their identity, heritage, and community in the face of rising antisemitism, particularly on college campuses.
+                Betar USA is a Zionist youth movement dedicated to educating and empowering Jewish
+                students to confidently embrace their identity, heritage, and community in the face of rising
+                antisemitism, especially on college campuses.
               </p>
-              <Button
-                className="border border-foreground hover:border-primary mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
-                asChild
-              >
-                <Link href="/about/ideology">
-                  Learn More
-                  <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
-                </Link>
-              </Button>
-            </div>
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
+                      As the North American arm of the international movement inspired by Ze'ev Jabotinsky, Betar
+                      USA was revitalized in 2024 by a group of lifelong Betarim determined to take action. With a
+                      101-year legacy, Betar stands for strong, proud, and resilient Jewish Zionism, carrying a rich
+                      history of impactful leadership and advocacy.
+                    </p>
+                    <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
+                      Our mission aligns with the vision of our founder, Ze'ev Jabotinsky: "To create the kind of Jew
+                      that the nation needs to swiftly and effectively build a Jewish state. In other words, to cultivate
+                      normal, healthy citizens for the Jewish nation. Today, Jews are neither normal nor healthy as a
+                      nation, and life in the Diaspora disrupts the intelligent development of such citizens."
+                    </p>
+                    <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
+                      Through education, community-building, and activism, Betar USA inspires Jewish students to
+                      rise as leaders, fortify their identity, and contribute to a thriving Jewish future.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <div className="flex gap-4">
+                <Button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group border border-foreground hover:border-primary"
+                >
+                  {isExpanded ? 'Show Less' : 'Read More'}
+                  <motion.span
+                    transition={{ duration: 0.2 }}
+                  >
+                    {isExpanded ? <ChevronUp className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" /> : <ChevronDown className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />}
+                  </motion.span>
+                </Button>
+                <Button
+                  className="border border-foreground hover:border-primary mt-6 sm:mt-8 md:mt-10 lg:mt-12 bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
+                  asChild
+                >
+                  <Link href="/about/ideology">
+                    Learn More
+                    <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
 
-            <div className="lg:order-2 order-1">
+            <motion.div
+              className="lg:order-2 order-1"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
               <Image
                 alt="Jewish students"
                 src="/dims.webp"
@@ -163,10 +223,9 @@ export default function HomePage() {
                 height={547}
                 className="w-full h-auto"
               />
-            </div>
-
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="max-w-7xl mx-auto p-4 sm:p-8 grid gap-8 flex-1 flex-grow pt-24 sm:pt-32 relative z-0">
@@ -232,56 +291,116 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white px-4 sm:px-8 pt-24 sm:pt-32">
+      <div className="overflow-hidden bg-white px-4 sm:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 md:mb-10 mx-auto">
             Our Guiding Compass
           </h2>
-          <p className="mx-auto mb-8 sm:mb-10 md:mb-12 text-center text-base sm:text-lg md:text-xl font-medium max-w-4xl">
-            Betar is a Zionist movement and is standing against any attempts to delegitimize Israel&apos;s existence or a Jew&apos;s connection to Israel. Betarim will be educated and supported to fight back on campus, in social media, and in their communities.
-          </p>
+          <div className="mx-auto mb-12 text-left text-base sm:text-lg md:text-xl font-medium">
+            <p className="mb-6">
+              Betar is a bold Zionist movement dedicated to defending Israel's legitimacy and strengthening
+              the Jewish connection to the land of Israel. Founded in 1923 by Ze'ev Jabotinsky in Latvia,
+              Betar has a proud history of empowering Jews to stand strong in the face of antisemitism, advocate
+              for Israel, and embrace their heritage.
+            </p>
+            <p className="mb-6">
+              As one of the oldest Zionist organizations, Betar has played a vital role in Zionist education,
+              promoting the Hebrew language and culture, teaching self-defense, and inspiring aliyah to Eretz
+              Israel by any means necessary. Guided by Jabotinsky's vision and the values exemplified by
+              Joseph Trumpeldor, Betar remains steadfast in its commitment to liberty, democracy, and
+              building a thriving Jewish state.
+            </p>
+            <p className="mb-6">
+              Betar has shaped history through its leaders, including Israeli Prime Ministers Menachem Begin
+              and Yitzchak Shamir, as well as Benzion Netanyahu, father of PM Benjamin Netanyahu. Our
+              legacy of self-defense, activism, and Jewish leadership continues to inspire the next generation.
+            </p>
+            <p className="mb-6">
+              Since our revival in 2024, Betar has made a powerful impact across the U.S. and is just getting
+              started. We are recruiting, developing, and empowering Jews to become unapologetic Zionist
+              leaders—defending Israel on campuses, in communities, and across all platforms.
+            </p>
+            <p className="mb-6">
+              Betar is more than a movement—it's a call to action. We are loud, proud, and aggressive in our
+              defense of Zionism. We don't just influence; we take action. The Jewish state may not exist
+              without the vision of Jabotinsky and the unwavering dedication of Betarim.
+            </p>
+            <p className="font-bold">
+              Join us. Be part of the movement that changed the Jewish world—and will continue to do so.
+            </p>
+          </div>
           <CardCarousel carouselData={carousel} />
         </div>
       </div>
 
-      <div className="overflow-x-hidden bg-white pt-24 sm:pt-32">
-        <div className="mx-auto max-w-[90rem] bg-primary">
-          <div className="relative" ref={statsRef}>
+      <div className="overflow-x-hidden bg-white">
+        <div className="mx-auto max-w-[90rem]">
+          <div className="bg-primary">
+            <div className="relative" ref={statsRef}>
+              <div className="inset-0 flex items-center justify-center flex-col px-4 sm:px-8 py-24 sm:py-32">
+                <div className="mx-auto max-w-4xl text-center">
+                  <h2 className="mt-2 text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
+                    The Problem
+                  </h2>
+                </div>
+                <p className="mx-auto mt-4 sm:mt-6 max-w-7xl text-pretty text-center text-base sm:text-lg md:text-xl font-medium text-accent">
+                  The Jewish community, especially young people on college campuses, are facing a rise in
+                  antisemitism that fuels isolation and vulnerability. Fragmented support systems and a
+                  growing disconnect from Jewish heritage weaken their sense of unity, pride, and
+                  resilience, threatening the strength of the Jewish community.
+                </p>
+                <div className="w-full pt-8 sm:pt-12 md:pt-16 lg:pt-20">
+                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-16">
+                      {stats.map((stat) => (
+                        <div
+                          key={stat.id}
+                          className="flex flex-col items-center text-center justify-between"
+                        >
+                          <dt className="text-xs sm:text-sm md:text-base text-accent mb-2">{stat.name}</dt>
+                          <dd className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-accent">
+                            {statsVisible ? (
+                              <>
+                                <NumberTicker className="text-inherit font-sans" value={stat.value} />
+                                {stat.id === 1 && "%"}
+                              </>
+                            ) : (
+                              0
+                            )}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-accent">
             <div className="inset-0 flex items-center justify-center flex-col px-4 sm:px-8 py-24 sm:py-32">
               <div className="mx-auto max-w-4xl text-center">
-                <h2 className="mt-2 text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
-                  The Problem
+                <h2 className="mt-2 text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                  The Solution
                 </h2>
               </div>
-              <p className="mx-auto mt-4 sm:mt-6 max-w-7xl text-pretty text-center text-base sm:text-lg md:text-xl font-medium text-accent">
-                The Jewish community, especially young people on college campuses, are facing a rise in
-                antisemitism that fuels isolation and vulnerability. Fragmented support systems and a
-                growing disconnect from Jewish heritage weaken their sense of unity, pride, and
-                resilience, threatening the strength of the Jewish community.
-              </p>
-              <div className="w-full py-8 sm:py-12 md:py-16 lg:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                  <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-16">
-                    {stats.map((stat) => (
-                      <div
-                        key={stat.id}
-                        className="flex flex-col items-center text-center justify-between"
-                      >
-                        <dt className="text-xs sm:text-sm md:text-base text-accent mb-2">{stat.name}</dt>
-                        <dd className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-accent">
-                          {statsVisible ? (
-                            <>
-                              <NumberTicker className="text-inherit font-sans" value={stat.value} />
-                              {stat.id === 1 && "%"}
-                            </>
-                          ) : (
-                            0
-                          )}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
+              <div className="mx-auto mt-4 sm:mt-6 max-w-7xl text-pretty text-center text-base sm:text-lg md:text-xl font-medium">
+                <p className="mb-6">
+                  Betar empowers Jewish students to stand tall, united, and proud in the face of rising
+                  antisemitism. We provide the tools, education, and community needed to strengthen their
+                  identity and resilience. By fostering a deep connection to Jewish heritage, Zionism, and the
+                  State of Israel, Betar equips young Jews to confront hate with confidence and purpose.
+                </p>
+                <p className="mb-6">
+                  Through leadership training, activism, and a network of like-minded peers, Betar creates a
+                  powerful support system that combats isolation and builds pride. We inspire students to reclaim
+                  their narrative, defend their community, and lead with strength and conviction on campuses, in
+                  their communities, and beyond.
+                </p>
+                <p>
+                  Betar is the solution for a united and thriving Jewish future—loud, proud, and unapologetically
+                  Zionist. Together, we will ensure that Jewish students are empowered to stand against hate,
+                  embrace their heritage, and secure the strength of the Jewish people.
+                </p>
               </div>
             </div>
           </div>

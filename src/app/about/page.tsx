@@ -104,7 +104,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="relative w-full max-h-[500px] overflow-hidden">
+      <div className="relative max-h-[500px] overflow-hidden">
         <Image
           src="/about-banner.webp"
           alt="Jews fight"
@@ -157,13 +157,13 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-primary lg:bg-background pt-24 sm:pt-32 w-full">
-        <div className="mx-auto">
+      <div className="overflow-hidden bg-primary my-24 lg:bg-background py-24 sm:py-32 w-full">
+        <div className="mx-auto max-w-7xl">
           <div className='relative'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 614" fill="none" className="w-full h-auto invisible lg:visible">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 614" fill="none" className="h-auto hidden lg:block">
               <path fillRule="evenodd" clipRule="evenodd" d="M1549.73 614L1569.79 0.225403L-49.4822 73.7413L-80.7817 583.726L1549.73 614Z" fill="#134CDD" />
             </svg>
-            <div className='absolute inset-0 flex items-center justify-center flex-col px-4 sm:px-8'>
+            <div className='lg:absolute inset-0 flex items-center justify-center flex-col px-4 sm:px-8'>
               <p className="text-center text-lg sm:text-4xl font-semibold text-accent max-w-3xl">
                 Betar exists to lead Jews and inspire action. Our mission is simple: Jews Fight Back! Guided by the words of our founder, Ze&apos;ev Jabotinsky, &quot;Silence is Despicable,&quot; we are a movement dedicated to instilling pride, strength, and resilience in Jews everywhere.
               </p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden w-full py-24 sm:py-32 max-w-7xl px-4 sm:px-8">
+      <div className="overflow-hidden w-full pb-24 sm:pb-32 max-w-7xl px-4 sm:px-8">
         <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
           <div className="relative w-full aspect-[2/1] lg:aspect-[16/17] overflow-hidden">
             <Image
