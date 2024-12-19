@@ -168,16 +168,16 @@ export default function HomePage() {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
-                      As the North American arm of the international movement inspired by Ze'ev Jabotinsky, Betar
+                      As the North American arm of the international movement inspired by Ze&quot;ev Jabotinsky, Betar
                       USA was revitalized in 2024 by a group of lifelong Betarim determined to take action. With a
                       101-year legacy, Betar stands for strong, proud, and resilient Jewish Zionism, carrying a rich
                       history of impactful leadership and advocacy.
                     </p>
                     <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
-                      Our mission aligns with the vision of our founder, Ze'ev Jabotinsky: "To create the kind of Jew
+                      Our mission aligns with the vision of our founder, Ze&quot;ev Jabotinsky: &lsquo;To create the kind of Jew
                       that the nation needs to swiftly and effectively build a Jewish state. In other words, to cultivate
                       normal, healthy citizens for the Jewish nation. Today, Jews are neither normal nor healthy as a
-                      nation, and life in the Diaspora disrupts the intelligent development of such citizens."
+                      nation, and life in the Diaspora disrupts the intelligent development of such citizens.&lsquo;
                     </p>
                     <p className="mt-4 text-base sm:text-lg md:text-xl leading-7 font-medium">
                       Through education, community-building, and activism, Betar USA inspires Jewish students to
@@ -298,15 +298,15 @@ export default function HomePage() {
           </h2>
           <div className="mx-auto mb-12 text-left text-base sm:text-lg md:text-xl font-medium">
             <p className="mb-6">
-              Betar is a bold Zionist movement dedicated to defending Israel's legitimacy and strengthening
-              the Jewish connection to the land of Israel. Founded in 1923 by Ze'ev Jabotinsky in Latvia,
+              Betar is a bold Zionist movement dedicated to defending Israel&quot;s legitimacy and strengthening
+              the Jewish connection to the land of Israel. Founded in 1923 by Ze&quot;ev Jabotinsky in Latvia,
               Betar has a proud history of empowering Jews to stand strong in the face of antisemitism, advocate
               for Israel, and embrace their heritage.
             </p>
             <p className="mb-6">
               As one of the oldest Zionist organizations, Betar has played a vital role in Zionist education,
               promoting the Hebrew language and culture, teaching self-defense, and inspiring aliyah to Eretz
-              Israel by any means necessary. Guided by Jabotinsky's vision and the values exemplified by
+              Israel by any means necessary. Guided by Jabotinsky&quot;s vision and the values exemplified by
               Joseph Trumpeldor, Betar remains steadfast in its commitment to liberty, democracy, and
               building a thriving Jewish state.
             </p>
@@ -321,8 +321,8 @@ export default function HomePage() {
               leaders—defending Israel on campuses, in communities, and across all platforms.
             </p>
             <p className="mb-6">
-              Betar is more than a movement—it's a call to action. We are loud, proud, and aggressive in our
-              defense of Zionism. We don't just influence; we take action. The Jewish state may not exist
+              Betar is more than a movement—it&quot;s a call to action. We are loud, proud, and aggressive in our
+              defense of Zionism. We don&quot;t just influence; we take action. The Jewish state may not exist
               without the vision of Jabotinsky and the unwavering dedication of Betarim.
             </p>
             <p className="font-bold">
