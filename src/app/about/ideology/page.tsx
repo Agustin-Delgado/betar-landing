@@ -93,6 +93,7 @@ export default function IdeologyPage() {
   return (
     <div className="flex flex-col items-center overflow-x-hidden">
       <Header className="text-foreground w-full" />
+
       <section className="flex-grow flex flex-col justify-center pt-24 md:pt-32 lg:pt-36 pb-8 sm:pb-12 w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           <div className="mx-auto gap-x-8 gap-y-16 lg:mt-0 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center w-full">
@@ -100,19 +101,22 @@ export default function IdeologyPage() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold tracking-tighter">
                 Ideology
               </h1>
-              <p className="text-base sm:text-lg md:text-xl font-medium leading-7">
-                Betar is more than a movement; it is a legacy of pride, resilience, and unwavering commitment
-                to the Jewish people. Rooted in the teachings and vision of Ze&apos;ev Jabotinsky, Betar instills
-                values that empower individuals to stand strong, united, and dignified. This is where history,
-                honor, and responsibility converge to shape a future of pride and strength for the Jewish people.
+              <div>
+                <p className="text-base sm:text-lg md:text-xl font-medium leading-7">
+                  Betar is more than a movement; it is a legacy of pride, resilience, and unwavering commitment
+                  to the Jewish people. Rooted in the teachings and vision of Ze&apos;ev Jabotinsky, Betar instills
+                  values that empower individuals to stand strong, united, and dignified. This is where history,
+                  honor, and responsibility converge to shape a future of pride and strength for the Jewish people.
+                </p>
                 <br />
-                <br />
-                Betar&apos;s ideology reflects the enduring mission of its founder, Ze&apos;ev Jabotinsky: to create a
-                “normal” and “healthy” Jew who is proud, self-reliant, and strong. Guided by principles of love
-                for the Jewish people, personal honor, strength, unity, and faith, Betar inspires its members to
-                live with purpose, resilience, and pride. These values are not just theoretical but practical,
-                shaping our actions and guiding us in building a thriving and united Jewish community.
-              </p>
+                <p className="text-base sm:text-lg md:text-xl font-medium leading-7">
+                  Betar&apos;s ideology reflects the enduring mission of its founder, Ze&apos;ev Jabotinsky: to create a
+                  “normal” and “healthy” Jew who is proud, self-reliant, and strong. Guided by principles of love
+                  for the Jewish people, personal honor, strength, unity, and faith, Betar inspires its members to
+                  live with purpose, resilience, and pride. These values are not just theoretical but practical,
+                  shaping our actions and guiding us in building a thriving and united Jewish community.
+                </p>
+              </div>
               <Button
                 className="border border-foreground hover:border-primary bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
                 onClick={() => setIsExpanded(!isExpanded)}
