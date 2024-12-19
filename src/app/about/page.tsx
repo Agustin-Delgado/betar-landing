@@ -132,7 +132,7 @@ export default function AboutPage() {
         <div className="flex flex-col lg:flex-row justify-between relative gap-8 lg:gap-16">
           <div className="lg:w-1/2 space-y-6">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              Betar USA is driven by the vision of our founder, Ze'ev Jabotinsky, to empower Jews to stand
+              Betar USA is driven by the vision of our founder, Ze&quot;ev Jabotinsky, to empower Jews to stand
               strong, speak out, and defend their heritage and Israel against all threats. Guided by the motto
               &quot;Jews Fight Back,&quot; we are a movement dedicated to fostering pride, resilience, and leadership in
               the Jewish community.
@@ -156,8 +156,8 @@ export default function AboutPage() {
           </div>
           <div className="lg:w-1/2 space-y-6">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              Join us and be part of a century-old legacy that continues to change the Jewish world. Betar isn't
-              just an organization—it's a movement for those ready to lead, defend, and transform the future
+              Join us and be part of a century-old legacy that continues to change the Jewish world. Betar isn&quot;t
+              just an organization—it&quot;s a movement for those ready to lead, defend, and transform the future
               of the Jewish people and to ignite a spirit of active resistance against antisemitism and anti-Israel
               sentiments through education, advocacy, and unapologetic action.
             </p>
@@ -195,7 +195,7 @@ export default function AboutPage() {
             and defend Zionism with clarity and courage.
           </p>
           <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-            Inspired by Jabotinsky's words, "Silence is despicable," Betar exists to inspire action, foster
+            Inspired by Jabotinsky&quot;s words, &quot;Silence is despicable,&quot; Betar exists to inspire action, foster
             unity, and ensure that Jews everywhere embrace their identity with pride and strength. Together,
             we will secure a resilient and thriving Jewish future.
           </p>
@@ -234,11 +234,11 @@ export default function AboutPage() {
                 Israel, and act with unwavering commitment to Jewish values.
               </p>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-8 mb-4">
-                Taking Action Where Others Won't
+                Taking Action Where Others Won&quot;t
               </h3>
               <p>
                 In a world where many Jewish organizations remain passive, Betar stands out as a movement of
-                action. We don't wait for others to step up—we lead.
+                action. We don&quot;t wait for others to step up—we lead.
               </p>
               <ul className="list-disc pl-6 space-y-4">
                 <li>
@@ -309,8 +309,8 @@ export default function AboutPage() {
             Building a Strong, Proud Jewish Future
           </h3>
           <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-            Betar's work goes beyond action—it's about inspiration. Our unapologetic, aggressive stance
-            against antisemitism embodies Jabotinsky's vision of Betarim as "proud, strong, and fierce."
+            Betar&quot;s work goes beyond action—it&quot;s about inspiration. Our unapologetic, aggressive stance
+            against antisemitism embodies Jabotinsky&quot;s vision of Betarim as &quot;proud, strong, and fierce.&quot;
             Each rally, cleanup, or response inspires others to stand up, speak out, and embrace their identity
             with confidence and pride.
           </p>
