@@ -101,7 +101,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
       <Header />
 
-      <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-bg.webp')] flex flex-col">
+      <div className="h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('/hero-banner.webp')] flex flex-col">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
         <div className="relative z-10 flex flex-col h-full">
           <div className="flex-grow flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">

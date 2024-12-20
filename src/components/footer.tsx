@@ -3,15 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, ChevronRight, RotateCw } from 'lucide-react';
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Progress } from "./ui/progress";
 
 const FormSchema = z.object({
   email: z.string({ required_error: 'Email is required' }).email({ message: 'Invalid email address' }),
@@ -21,6 +21,14 @@ export default function Footer() {
   const { toast } = useToast()
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [donationData, setDonationData] = useState({
+    title: '',
+    amountRaised: '',
+    goal: 0,
+    donations: '',
+    donationUrl: ''
+  })
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -60,6 +68,17 @@ export default function Footer() {
       })
   }
 
+  useEffect(() => {
+    (async () => {
+      await fetch('/api/fund-data')
+        .then(res => res.json())
+        .then(data => {
+          setDonationData(data)
+          setLoading(false)
+        })
+    })()
+  }, [])
+
   return (
     <div className="w-full h-full">
       <div className="bg-primary py-12 sm:py-24 md:py-40 relative z-0">
@@ -72,15 +91,35 @@ export default function Footer() {
             IS HERE TO LEAD
           </span>
         </div>
-        <div className="mt-8 sm:mt-12 flex items-center justify-center relative z-10">
-          <Button
-            className="border border-foreground hover:border-primary bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
-            onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
-
-          >
-            Donate
-            <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
-          </Button>
+        <div className="mt-8 sm:mt-12 flex items-center justify-center relative z-10 px-4 sm:px-0">
+          {loading ?
+            <Button
+              className="border border-foreground hover:border-primary bg-background text-foreground font-bold h-10 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-6 md:px-8 lg:px-10 py-0 text-base sm:text-lg md:text-xl hover:text-primary hover:bg-background group"
+              onClick={() => window.open('https://www.gofundme.com/f/betar-fund')}
+            >
+              Donate
+              <ArrowRight className="!w-4 !h-4 sm:!w-5 sm:!h-5 md:!w-6 md:!h-6 ml-2 group-hover:text-primary" />
+            </Button>
+            :
+            <Button
+              className="border flex flex-col sm:flex-row gap-0 p-0 border-foreground hover:border-primary bg-background text-foreground font-bold h-auto text-base hover:text-primary hover:bg-background group w-full sm:w-auto"
+              onClick={() => window.open(donationData.donationUrl, '_blank')}
+            >
+              <div className="flex flex-col items-start p-4 sm:pr-4 sm:py-2 sm:pl-6 sm:border-r border-foreground w-full sm:w-auto">
+                <span className="text-sm sm:text-base mb-2">{donationData.title}</span>
+                <Progress
+                  className="mt-2 rounded-none w-full"
+                  value={Number(donationData.amountRaised.replace(/[^0-9.-]+/g, "")) / donationData.goal * 100}
+                />
+                <span className="text-xs sm:text-sm font-normal mt-2">
+                  <strong>{donationData.amountRaised} raised</strong> - {donationData.donations}
+                </span>
+              </div>
+              <div className="p-4 sm:pr-6 sm:pl-4 w-full sm:w-auto text-center sm:text-left">
+                Donate
+              </div>
+            </Button>
+          }
         </div>
       </div>
       <div className="bg-foreground py-12 sm:py-16 md:py-24 w-full h-full relative z-10">
