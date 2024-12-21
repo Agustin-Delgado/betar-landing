@@ -70,7 +70,10 @@ export default function Footer() {
 
   useEffect(() => {
     (async () => {
-      await fetch('/api/fund-data')
+      await fetch('/api/fund-data', {
+        method: 'GET',
+        cache: 'no-store'
+      })
         .then(res => res.json())
         .then(data => {
           setDonationData(data)
