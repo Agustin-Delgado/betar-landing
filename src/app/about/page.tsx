@@ -144,7 +144,7 @@ export default function AboutPage() {
               Leadership Team
             </h2>
             <p className="text-base sm:text-lg md:text-xl font-medium leading-7 max-w-3xl mx-auto">
-              Meet the leaders who uphold Betar's mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky's legacy.
+              Meet the leaders who uphold Betar&apos;s mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky&apos;s legacy.
             </p>
           </div>
           <div className="mt-16 mx-auto grid grid-cols-1 gap-y-16 lg:gap-x-16 lg:grid-cols-2 items-start">
@@ -166,9 +166,9 @@ export default function AboutPage() {
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ross Glick : Executive Director</h3>
               <p className="text-base sm:text-lg md:text-xl leading-7">
-                Ross Glick is a seasoned business development leader and marketing strategist with over 20 years of experience driving growth and innovation. Since joining Betar in October 2024, Ross has significantly increased the organization's visibility, secured media coverage, and built a strong network of leaders and supporters. His efforts have positioned Betar as a key voice against antisemitism and antizionism, earning recognition from several Congressional leaders.
+                Ross Glick is a seasoned business development leader and marketing strategist with over 20 years of experience driving growth and innovation. Since joining Betar in October 2024, Ross has significantly increased the organization&apos;s visibility, secured media coverage, and built a strong network of leaders and supporters. His efforts have positioned Betar as a key voice against antisemitism and antizionism, earning recognition from several Congressional leaders.
                 <br /><br />
-                Ross&apos;s fearless leadership and ability to merge creativity, technology, and strategy make him a catalyst for change in both business and the Jewish community. He excels at driving sales, enhancing brand presence, and launching digital ventures, leveraging extensive experience from startups to Fortune 500 companies. His passion for Zionism, strategic insight and creative vision continue to advance Betar’s mission and drive impactful growth.
+                Ross&apos;s fearless leadership and ability to merge creativity, technology, and strategy make him a catalyst for change in both business and the Jewish community. He excels at driving sales, enhancing brand presence, and launching digital ventures, leveraging extensive experience from startups to Fortune 500 companies. His passion for Zionism, strategic insight and creative vision continue to advance Betar&apos;s mission and drive impactful growth.
               </p>
             </div>
             <div className="aspect-[5/4] lg:aspect-[16/16] bg-gray-100 overflow-hidden relative">
