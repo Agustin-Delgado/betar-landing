@@ -139,21 +139,43 @@ export default function AboutPage() {
 
       <div className="overflow-hidden bg-white w-full">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="mx-auto grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-2 items-center">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl mb-6 mx-auto">
+              Leadership Team
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium leading-7 max-w-3xl mx-auto">
+              Meet the leaders who uphold Betar's mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky's legacy.
+            </p>
+          </div>
+          <div className="mt-16 mx-auto grid grid-cols-1 gap-y-16 lg:gap-x-16 lg:grid-cols-2 items-start">
+            <div className="aspect-[5/4] lg:aspect-[16/16] bg-gray-100 overflow-hidden relative">
+              <img
+                alt="Ronn Torossian"
+                src="https://miro.medium.com/v2/resize:fit:2000/1*Ye9Vb2oVWWAzoCueX0Hbfw.jpeg"
+                className="w-full h-full object-cover"
+                width={1020}
+                height={1020}
+              />
+            </div>
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl mb-6">
-                Leadership Team
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl font-medium leading-7 mb-6">
-                Meet the leaders who uphold Betar&apos;s mission and embody our values. Our leadership team is dedicated to inspiring, guiding, and empowering the next generation of Jewish leaders to carry forward Jabotinsky&apos;s legacy.
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ronn Torossian : Chairman</h3>
+              <p className="text-base sm:text-lg md:text-xl leading-7">
+                Ronn has been a member of Betar since birth. He founded and owns one of the leading independent PR agencies in the US and is a well-known entrepreneur who has lectured at Harvard Business School & NYU and is a best-selling author. Torossian is an American-Israeli, who serves as President of Duvdevan US, and is a Board member of Shurat Hadin and other charities. He grew up in the Betar movement and is a lifelong Jabotinsky follower. Torossian will donate 6 figures annually to Betar and is unpaid.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ross Glick : Executive Director</h3>
+              <p className="text-base sm:text-lg md:text-xl leading-7">
+                Ross Glick is a seasoned business development leader and marketing strategist with over 20 years of experience driving growth and innovation. Since joining Betar in October 2024, Ross has significantly increased the organization's visibility, secured media coverage, and built a strong network of leaders and supporters. His efforts have positioned Betar as a key voice against antisemitism and antizionism, earning recognition from several Congressional leaders.
+                <br /><br />
+                Ross&apos;s fearless leadership and ability to merge creativity, technology, and strategy make him a catalyst for change in both business and the Jewish community. He excels at driving sales, enhancing brand presence, and launching digital ventures, leveraging extensive experience from startups to Fortune 500 companies. His passion for Zionism, strategic insight and creative vision continue to advance Betar’s mission and drive impactful growth.
               </p>
             </div>
             <div className="aspect-[5/4] lg:aspect-[16/16] bg-gray-100 overflow-hidden relative">
-              <Image
-                alt="Jewish students"
-                src="/e8c7d01f50f9f635b49b17627fc1d245.webp"
+              <img
+                alt="Ross Glick"
+                src="https://static-cdn.toi-media.com/www/uploads/2024/12/WhatsApp-Image-2024-12-01-at-4.46.33-PM-1-e1733144919629.jpeg"
                 className="w-full h-full object-cover"
-                objectFit="cover"
                 width={1020}
                 height={1020}
               />
